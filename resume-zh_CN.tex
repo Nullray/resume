@@ -29,7 +29,7 @@
 \begin{itemize}[parsep=0.2ex]
   \item \textbf{系统软件开发：}C、Python、Shell、Makefile、Git；Linux 用户态/驱动调试、D-Bus/REST API、自动化部署脚本。
   \item \textbf{虚拟化与设备模型：}QEMU、VirtIO、IOMMU；PCIe 配置空间、BAR/MMIO、中断与 DMA 映射。
-  \item \textbf{存储与 DMA 数据路径：}NVMe 队列、PRP/SGL、SPDK/fio、libnvme/liburing；XDMA/QDMA/MCDMA、DataMover、PS-PL 数据搬移。
+  \item \textbf{存储与 DMA 数据路径：}NVMe 队列、PRP/SGL、SPDK/fio、libnvme/liburing；XDMA/QDMA/MCDMA、DataMover、主机与租户硬件逻辑间的数据搬移。
   \item \textbf{FPGA/RTL 与板级调试：}FPGA 原型验证、AXI4/AXI-Stream、RTL/Verilog、Vivado Tcl、ILA 波形调试、Redfish/BMCWeb、U-Boot/EEPROM。
 \end{itemize}
 
@@ -53,11 +53,11 @@
 \end{itemize}
 
 \datedsubsection{\textbf{本科毕业设计：裸金属 FPGA 云服务器网络化部署与设备内存隔离}}{2023.06 -- 2024.06}
-\textit{FPGA 裸金属云服务器 / Redfish 自动化管理 / PS-PL DMA 隔离}
+\textit{FPGA 裸金属云服务器 / Redfish 自动化管理 / 租户硬件逻辑访存隔离}
 \begin{itemize}[parsep=0.2ex]
-  \item 构建 FPGA 裸金属节点的网络化管理与自动部署流程：通过 Redfish/BMCWeb 管理启动模式，经 D-Bus 将配置持久化至 EEPROM，并由 U-Boot 选择 SD/SSD 启动；结合 TFTP/NFS/RAMDisk 完成文件系统下发和 SSD 引导。
-  \item 面向多租户 PL 逻辑争抢内存控制器的问题，设计每个 Role 独占的双向 DMA 引擎；自主实现 \textbf{DMA\_Writer}，从 MCDMA 控制流的 APP 字段解析目的地址，驱动 Data Mover 将 AXI4-Stream 转为 AXI4-MM 写事务，隔离 PS 与 PL 的访存路径。
-  \item 基于 SPDK/VFIO 实现用户态 MCDMA 驱动，利用大页内存和描述符链组织数据传输，并通过 APP 字段传递目的地址。
+  \item 面向 FPGA 裸金属节点缺乏远程运维能力的问题，构建基于 Redfish/BMCWeb 的网络化管理与自动部署流程：经 D-Bus 持久化启动配置至 EEPROM，由 U-Boot 选择 SD/SSD 启动，并通过 TFTP/NFS/RAMDisk 下发文件系统，实现节点远程配置、部署和重启。
+  \item 面向多租户硬件逻辑争抢设备内存控制器的问题，为每个租户设计独占的双向 DMA 数据路径；基于 SPDK/VFIO 实现用户态 MCDMA 驱动，使用大页内存维护多通道描述符链，将一次搬运的源地址、目标地址和长度下发到硬件，并完成通道启停、描述符提交与完成回收。
+  \item 设计实现 \textbf{DMA Writer}：MCDMA 读取源内存后仅输出不含地址的流式数据；模块读取驱动随传输任务附带的目标地址和通道信息，将其与对应数据流关联，驱动 Data Mover 生成写入目标设备内存的 AXI4-MM 事务，完成主机侧内存与租户设备内存之间的隔离搬运。
 \end{itemize}
 
 %% Reference
