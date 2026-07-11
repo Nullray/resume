@@ -1,0 +1,62 @@
+闫嘉润
+rayyan.work@foxmail.com · 13520245328
+求职意向：系统软件 / 存储系统 / 虚拟化 / FPGA 原型验证实习；关注 PCIe/NVMe、Linux I/O、QEMU 与软硬件协
+同调试。
+
+教育背景
+中国科学院大学 / 中国科学院计算技术研究所，电子信息，在读硕士研究生
+电子科技大学，软件工程（嵌入式系统），本科
+
+2024.09 – 至今
+2020.09 – 2024.06
+
+本科方向排名：19/127，GPA：3.95/4.00；英语四级：632，英语六级：516。
+
+系统软件与核心技术
+• 系统软件开发：C/C++、Python、Shell、Makefile、Git；Linux 用户态/驱动调试、D-Bus/REST API、自
+动化部署脚本。
+• 虚拟化与设备模型：QEMU/KVM、QEMU 设备模型、VirtIO/virtqueue、VFIO/IOMMU；PCIe 配置空
+间、BAR/MMIO、中断与 DMA 映射。
+• 存储与 DMA 数据路径：NVMe 队列、PRP/SGL、SPDK/fio、libnvme/liburing；XDMA/QDMA/MCDMA、
+DataMover、PS-PL 数据搬移。
+• FPGA/RTL 与板级调试：FPGA 原型验证、AXI4/AXI-Stream、RTL/Verilog、Vivado Tcl、ILA 波形调
+试、Redfish/BMCWeb、U-Boot/EEPROM。
+
+项目经历
+SCOPE：远端 PCIe 外设透明接入与事务追踪系统
+
+2025.04 – 至今
+
+硕士课题 / 系统软件与 FPGA 原型验证
+• 设计远端 PCIe 外设透明接入方案，在 DUT 侧保留标准 PCIe/NVMe 访问语义，并为真实 NVMe 驱
+动、DMA、中断和时序行为提供协议级追踪能力。
+• 实现 FPGA 侧 BAR/MMIO/doorbell 拦截、XDMA 上报与 AXI 事务监控链路，捕获 DUT 对真实设备
+配置空间和队列寄存器的访问。
+• 维护主机侧 NVMe proxy 状态并验证枚举、Admin SQ/CQ、DMA 地址改写和虚拟中断闭环，替代固
+定延时兜底方案。
+
+SUDA：SoC-FPGA 可计算存储设备架构与统一编程模型
+
+2024.07 – 2025.06
+
+可计算存储 / 异构系统软件
+• 设计 SoC-FPGA CSD 的 NVMe 风格命令链路，将设备侧内存管理、程序加载和执行请求统一封装为
+可下发的计算存储请求。
+• 实现主机 API 与内核侧 buffer 映射路径，将用户请求转换为内核请求对象，并对接 QDMA 传输层的
+命令、数据和 inline payload 下发策略。
+• 调试设备侧 MCDMA/SPDK 命令分发层，完成 Fidus Sidewinder-100 + NVMe SSD + Linux 5.4.211 环
+境部署，验证 Blowfish、Grep 和 SLM copy。
+
+本科毕业设计：裸金属 FPGA 云服务器网络化部署与设备内存隔离
+
+本科毕业设计
+
+FPGA 裸金属云服务器 / Redfish 管理接口 / MCDMA 数据通路
+• 设计 Redfish/BMCWeb 启动模式管理接口，通过 D-Bus 联动 EEPROM 持久化配置，并修改 U-Boot 读
+取 I2C EEPROM 以选择 SD/SSD 启动路径。
+• 编写 TFTP/NFS/RAMDisk 自动部署脚本，启动临时 Linux 加载 NVMe 驱动并向 500GB SSD 部署文
+件系统，实现 FPGA 裸金属节点从 SSD 启动。
+• 实现基于 MCDMA、DMA_Writer 和 DataMover 的 PS-PL 内存隔离 DMA 引擎，并基于 SPDK 编写用
+户态 MCDMA 驱动；验证 10 个 MCDMA 部署和多通道传输。
+
+

@@ -72,15 +72,17 @@
 }
 
 \newcommand{\contactInfo}[4]{
-  \centerline{\sffamily\large{\ {#1} \textperiodcentered\ \ {#2}}
+  \begin{center}
+    \sffamily\normalsize
+    {#1} \textperiodcentered\ {#2}
     \ifthenelse{\isempty{#3}}%
       { } % if {#3} is empty
-      {\textperiodcentered\ \ {#3} } % homepage, no space before \text...
+      {\textperiodcentered\ {#3} } % homepage, no space before \text...
     \ifthenelse{\isempty{#4}}%
       { } % if {#3} is empty
-      {\textperiodcentered\ \ {#4} }
-  }
-  \vspace{0.7ex}
+      {\textperiodcentered\ {#4} }
+  \end{center}
+  \vspace{-0.5ex}
 }
 
 \newcommand{\role}[2]{

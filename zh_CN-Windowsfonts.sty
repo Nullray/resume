@@ -1,0 +1,52 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{zh_CN-Windowsfonts}[2026/07/06 Windows CJK fonts Package]
+
+\RequirePackage{fontspec}
+\RequirePackage{xeCJK}
+
+\defaultfontfeatures{Mapping=tex-text}
+
+\setCJKmainfont[
+  Path = C:/Windows/Fonts/,
+  UprightFont = simsun.ttc,
+  BoldFont = simhei.ttf,
+  ItalicFont = simkai.ttf,
+  SmallCapsFont = simhei.ttf,
+  AutoFakeBold = 2.5
+]{simsun.ttc}
+
+\setCJKsansfont[
+  Path = C:/Windows/Fonts/,
+  UprightFont = simhei.ttf,
+  BoldFont = simhei.ttf,
+  AutoFakeBold = 2.5
+]{simhei.ttf}
+
+\setCJKmonofont[
+  Path = C:/Windows/Fonts/,
+  AutoFakeBold = 2.5
+]{simfang.ttf}
+
+\setCJKfamilyfont{zhsong}[
+  Path = C:/Windows/Fonts/,
+  AutoFakeBold = 2.5
+]{simsun.ttc}
+\setCJKfamilyfont{zhhei}[
+  Path = C:/Windows/Fonts/,
+  AutoFakeBold = 2.5
+]{simhei.ttf}
+\setCJKfamilyfont{zhkai}[
+  Path = C:/Windows/Fonts/,
+  AutoFakeBold = 2.5
+]{simkai.ttf}
+\setCJKfamilyfont{zhfs}[
+  Path = C:/Windows/Fonts/,
+  AutoFakeBold = 2.5
+]{simfang.ttf}
+
+\newcommand*{\songti}{\CJKfamily{zhsong}}
+\newcommand*{\heiti}{\CJKfamily{zhhei}}
+\newcommand*{\kaishu}{\CJKfamily{zhkai}}
+\newcommand*{\fangsong}{\CJKfamily{zhfs}}
+
+\endinput

@@ -16,12 +16,18 @@ ItalicFont=AdobeKaitiStd-Regular.otf,
 SmallCapsFont=AdobeHeitiStd-Regular.otf
 ]{AdobeSongStd-Light.otf}
 \setCJKsansfont{AdobeHeitiStd-Regular.otf}
-\setCJKmonofont{AdobeFangsongStd-Regular.otf}
 
 \setCJKfamilyfont{zhsong}{AdobeSongStd-Light.otf}
 \setCJKfamilyfont{zhhei}{AdobeHeitiStd-Regular.otf}
-\setCJKfamilyfont{zhfs}{AdobeFangsongStd-Regular.otf}
 \setCJKfamilyfont{zhkai}{AdobeKaitiStd-Regular.otf}
+
+\IfFileExists{fonts/zh_CN-Adobe/AdobeFangsongStd-Regular.otf}{%
+  \setCJKmonofont{AdobeFangsongStd-Regular.otf}
+  \setCJKfamilyfont{zhfs}{AdobeFangsongStd-Regular.otf}
+}{%
+  \setCJKmonofont{AdobeKaitiStd-Regular.otf}
+  \setCJKfamilyfont{zhfs}{AdobeKaitiStd-Regular.otf}
+}
 
 \newcommand*{\songti}{\CJKfamily{zhsong}} % 宋体
 \newcommand*{\heiti}{\CJKfamily{zhhei}}   % 黑体

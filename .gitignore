@@ -35,3 +35,8 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# LaTeX build artifacts and local verification output
+*.aux
+*.pdf
+tmp/
