@@ -10,9 +10,13 @@
 \begin{document}
 \pagenumbering{gobble}
 
+\photo{self_pic.jpg}
 \name{闫嘉润}
 
-\contactInfo{rayyan.work@foxmail.com}{13520245328}{\textbf{求职意向：}存储系统 / 虚拟化 / 云计算}{}
+\contactInfo{rayyan.work@foxmail.com}{13520245328}{}{}
+\vspace{1.2ex}
+\centerline{\sffamily\large\textbf{求职意向：}存储系统、虚拟化、云计算}
+\vspace{-1.0ex}
 
 
 \vspace{-1.2ex}
@@ -25,36 +29,36 @@
 \vspace{0.5em}
 \section{系统软件与软硬件协同能力}
 \begin{itemize}[parsep=0.2ex]
-  \item \textbf{系统软件与工程：}C、Python、Shell、Makefile、Git；Linux 用户态与内核驱动调试，D-Bus、REST API 和自动化部署。
+  \item \textbf{系统软件开发：}C、Python、Shell；Linux 用户态开发与内核驱动调试，Makefile、Git。
   \item \textbf{虚拟化与 PCIe：}QEMU 设备模型、VFIO、IOMMU、VirtIO；PCIe 配置空间、BAR、MMIO、DMA 地址映射和虚拟中断。
-  \item \textbf{存储与 DMA 数据路径：}NVMe 管理队列与 I/O 队列、PRP 与 SGL；SPDK、fio、libnvme、liburing；XDMA、QDMA、MCDMA、Data Mover、描述符链和用户态 DMA 驱动。
-  \item \textbf{FPGA 原型与设备管理：}FPGA 原型验证、AXI、Verilog、RTL、Vivado Tcl、ILA 波形调试；Redfish、BMCWeb、U-Boot、EEPROM、TFTP 和 NFS。
+  \item \textbf{存储与用户态 I/O：}NVMe 提交/完成队列与中断机制；SPDK、DPDK、liburing。
+  \item \textbf{FPGA 软硬协同：}AXI、Verilog、Vivado Tcl、ILA 波形调试；XDMA、QDMA、MCDMA、Data Mover、U-Boot。
 \end{itemize}
 
 \section{项目经历}
 
 
-\datedsubsection{\textbf{远端 PCIe 外设透明接入与事务追踪系统}\ \ \ \ \ \ 项目负责人}{2025.04 -- 至今}
+\datedsubsection{\textbf{远端 PCIe 外设透明接入与事务追踪系统}\ \ \ \ \ \ \textit{方向：I/O虚拟化}}{2025.04 -- 至今}
 
 \begin{itemize}[parsep=0.2ex]
 \item 设计实现虚拟PCIe Switch：硬件模块vSwitch做枚举事务解析并传递到主机；主机程序借助QEMU维护虚拟配置空间，协调 FPGA 侧配置访问与 BAR 路由，使 Linux 可按标准流程枚举完整 PCIe Switch与外设拓扑。
 \item 设计实现远端 NVMe 设备访问链路，实现 BAR/MMIO/doorbell 拦截、XDMA 消息转发、DMA 地址改写与虚拟中断注入，支持标准 NVMe 驱动进行队列初始化与数据传输。
 \item 效果：支持用户按需定义 DUT 可见的 PCIe 拓扑与外设组合，并对配置访问、设备响应和 I/O 过程进行事务追踪与可控故障注入。
-\item \textit{工作部分内容作为海报在 \textbf{FPGA领域顶刊-FCCM 2026}展示。}
+\item \textit{部分工作成果在 \textbf{FPGA领域顶刊-FCCM 2026}展示（第一作者）。}
 \end{itemize}
 
-\datedsubsection{\textbf{SoC-FPGA 可计算存储设备架构与统一编程模型}\ \ \ \ \ \ 项目负责人} {2024.07 -- 2025.06}
+\datedsubsection{\textbf{SoC-FPGA 可计算存储设备架构与统一编程模型}\ \ \ \ \ \ \textit{方向：近存储计算}} {2024.07 -- 2025.06}
 \begin{itemize}[parsep=0.2ex]
-  \item 参与打通主机到 SoC-FPGA CSD 的计算存储请求链路：基于 libnvme/liburing 将设备内存管理、程序加载和执行请求封装为 NVMe 风格命令，统一主机侧调用接口。
-  \item 实现 nvmq/qdma 主机驱动路径，将用户缓冲区映射为内核请求，并通过 PCIe/QDMA 按命令单独传输、数据单独传输和命令携带 inline payload 三类策略下发到设备。
-  \item 基于 SPDK 完善设备侧 MCDMA 轮询与命令分发：接收 QDMA 请求并按操作类型调度设备内存读写、拷贝、内存范围管理和程序执行等异步处理流程，向主机回传完成状态，实现计算存储请求的设备侧闭环。
+  \item 将 SoC-FPGA 计算存储设备抽象为可编程外设：主机应用通过统一接口管理设备内存、加载程序并提交执行任务，使数据可在靠近存储的设备侧完成处理。
+  \item 为承载设备内存读写、程序加载等不同请求，完善用户缓冲区到内核传输请求的映射与组装；支持控制命令携带程序片段、数据读写独立传输。
+  \item 基于 SPDK 完善设备侧 DMA 队列的轮询与命令分发，异步处理设备内存读写、拷贝、内存范围管理和程序执行，并向主机回传完成状态。
 \end{itemize}
 
-\datedsubsection{\textbf{裸金属 FPGA 云服务器网络化部署与设备内存隔离}\ \ \ \ \ \ 项目负责人}{2023.06 -- 2024.06}
+\datedsubsection{\textbf{裸金属 FPGA 云服务器网络化部署与设备内存隔离}\ \ \ \textit{方向：多租户内存隔离}}{2023.06 -- 2024.06}
 \begin{itemize}[parsep=0.2ex]
-  \item 面向 FPGA 裸金属节点缺乏远程运维能力的问题，构建基于 Redfish/BMCWeb 的网络化管理与自动部署流程：经 D-Bus 持久化启动配置至 EEPROM，由 U-Boot 选择 SD/SSD 启动，并通过 TFTP/NFS/RAMDisk 下发文件系统，实现节点远程配置、部署和重启。
-  \item 面向多租户硬件逻辑争抢设备内存控制器的问题，为每个租户设计独占的双向 DMA 数据路径；基于 SPDK/VFIO 实现用户态 MCDMA 驱动，使用大页内存维护多通道描述符链，将一次搬运的源地址、目标地址和长度下发到硬件，并完成通道启停、描述符提交与完成回收。
-  \item 设计实现 \textbf{DMA Writer}：MCDMA 读取源内存后仅输出不含地址的流式数据；模块读取驱动随传输任务附带的目标地址和通道信息，将其与对应数据流关联，驱动 Data Mover 生成写入目标设备内存的 AXI4-MM 事务，完成主机侧内存与租户设备内存之间的隔离搬运。
+  \item 基于 Redfish/BMCWeb 构建节点远程管理与自动部署流程，借助 D-Bus、EEPROM 和 U-Boot 配置启动方式，并通过 TFTP/NFS 下发系统镜像，实现节点远程配置、部署和 SSD 启动。
+  \item 为隔离多租户硬件逻辑对设备内存控制器的竞争，设计每租户独占的双向 DMA 路径；基于 SPDK 用户态驱动，使用大页和描述符链提交并回收 DMA 传输。
+  \item 自主实现 \textbf{DMA Writer}，将驱动提供的目标地址与 MCDMA 流式数据关联，生成 AXI4-MM 写事务，实现主机侧与租户设备内存间的隔离搬运。
 \end{itemize}
 
 %% Reference

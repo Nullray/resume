@@ -6,6 +6,7 @@
 \setlength{\parindent}{0pt}
 % some general improvements, defines the XeTeX logo
 \RequirePackage{xltxtra}
+\RequirePackage[absolute,overlay]{textpos}
 % use xifthen
 \RequirePackage{xifthen}
 % use fontawesome
@@ -71,9 +72,21 @@
   \vspace{1.2ex}
 }
 
+\newlength{\resumePhotoWidth}
+\setlength{\resumePhotoWidth}{2.90cm}
+\newlength{\resumePhotoX}
+\setlength{\resumePhotoX}{\paperwidth}
+\addtolength{\resumePhotoX}{-0.7in}
+\addtolength{\resumePhotoX}{-\resumePhotoWidth}
+\newcommand{\photo}[1]{%
+  \begin{textblock*}{\resumePhotoWidth}(\resumePhotoX,0.20in)
+    \includegraphics[width=\resumePhotoWidth,height=3.70cm,keepaspectratio]{#1}
+  \end{textblock*}%
+}
+
 \newcommand{\contactInfo}[4]{
   \begin{center}
-    \sffamily\normalsize
+    \sffamily\large
     {#1} \textperiodcentered\ {#2}
     \ifthenelse{\isempty{#3}}%
       { } % if {#3} is empty

@@ -1,0 +1,961 @@
+%% bare_conf.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[10pt,conference,letterpaper]{IEEEtran}
+% Some Computer Society conferences also require the compsoc mode option,
+% but others use the standard conference format.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+\newlength{\scopeTableCaptionWidth}
+\newcommand{\scopeTableCaption}[2]{%
+    \refstepcounter{table}%
+    \settowidth{\scopeTableCaptionWidth}{\footnotesize TABLE~\thetable. #1}%
+    \ifdim\scopeTableCaptionWidth>\linewidth
+        {\centering\resizebox{\linewidth}{!}{\footnotesize TABLE~\thetable. #1}\par}%
+    \else
+        {\centering\footnotesize\mbox{TABLE~\thetable. #1}\par}%
+    \fi
+    \vspace{0.5ex}%
+    \label{#2}%
+}
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{SCOPE: SCalable and Observable PEripheral-Borrowing Framework for FPGA-Based Prototyping}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+%\author{\IEEEauthorblockN{Michael Shell}
+%\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
+%Georgia Institute of Technology\\
+%Atlanta, Georgia 30332--0250\\
+%Email: http://www.michaelshell.org/contact.html}
+%\and
+%\IEEEauthorblockN{Homer Simpson}
+%\IEEEauthorblockA{Twentieth Century Fox\\
+%Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\and
+%\IEEEauthorblockN{James Kirk\\ and Montgomery Scott}
+%\IEEEauthorblockA{Starfleet Academy\\
+%San Francisco, California 96678--2391\\
+%Telephone: (800) 555--1212\\
+%Fax: (888) 555--1212}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+FPGA-based prototyping is critical for pre-silicon validation, but limited physical PCIe slots severely constrain multi-device topologies. Existing solutions either emulate peripherals in software, sacrificing physical fidelity, or rely on dedicated expansion/interconnect hardware, which makes fine-grained control transactions difficult to observe.
+
+We present SCOPE, a scalable and observable peripheral-borrowing framework. SCOPE builds upon a reconfigurable FPGA routing substrate for cross-domain register and DMA operations that provides programmable DUT-to-host register-space remapping, reverse host-to-DUT translation for peripheral DMA, and DUT-visible interrupt regeneration. The substrate provides two control modes: Direct Control Mode maps device-register accesses in hardware for low-latency operation, whereas Proxy Forwarding Mode routes them through host software for command-level observation and intervention. A device-specific Semantic Adapter supplies the register, command-or-descriptor, DMA-address, completion, and event semantics required by each peripheral type.
+
+We evaluate full NVMe data/control paths and demonstrate NIC register-access compatibility. Direct Control Mode increases host-side NVMe register-write latency by 14.0\% over the FPGA-side NVMe baseline on ARM. The NVMe P2P data path retains up to 99.1\% of host-memory sequential-read bandwidth. Proxy Forwarding Mode exposes an observable register-write latency of approximately 29~$\mu$s. A virtual INTx test delivers every interrupt without timeout and measures a 956.81 ns mean host coordinator injection-path overhead. 
+\end{abstract}
+
+% no keywords
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+
+Field-Programmable Gate Arrays (FPGAs) serve as a critical platform for pre-silicon system-level validation and hardware-software co-development~\cite{Farooq2012}. Unlike software simulators constrained to kHz-level frequencies and heavy abstraction~\cite{karandikar2018firesim}, FPGA prototyping offers cycle-accurate, MHz-level execution. This enables early performance bottleneck identification and full software stack validation prior to tape-out, significantly accelerating SoC iteration cycles.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/scope_peripheral_borrowing_ieee.drawio.png}
+    \caption{Comparison of conventional software peripheral simulation, FPGA prototyping with physical peripherals, and the proposed SCOPE peripheral-borrowing framework. SCOPE combines host-side real PCIe peripheral access with a direct P2P DMA data path and an observable proxy control path.}
+    \label{fig:scope_motivation}
+    \label{fig:Environment of FPGA-based Prototyping environment}
+    \label{fig:Host-Mediated Control Plane}
+    \label{fig:P2P DMA}
+\end{figure}
+
+Modern CPU-centric SoC systems demand rigorous pre-silicon validation of the complete software ecosystem prior to tape-out. The Design Under Test (DUT) must boot production-grade operating systems and exercise hardware-level peripheral protocol semantics with comprehensive protocol compliance. This requirement for \textit{protocol fidelity} distinguishes pre-silicon validation from software emulation and places stringent demands on both physical realism and observability.
+
+Software-simulated endpoints can provide deterministic responses and high observability, but they cannot expose the DUT software stack to authentic hardware non-determinism, real PCIe link behavior, or device-specific driver corner cases~\cite{karandikar2018firesim}. Conversely, integrating high-performance PCIe peripherals into FPGA-based prototype environments reveals a fundamental physical bottleneck: limited on-board PCIe slots restrict realistic multi-device topologies such as RAID arrays or multi-NIC clusters.
+\begin{table*}[t]
+\centering
+\caption{Design-Space Positioning of Peripheral Integration Schemes}
+\label{tab:qualitative_comparison}
+\renewcommand{\arraystretch}{1.35}
+\resizebox{1\textwidth}{!}{%
+\begin{tabular}{@{}l c c c c c@{}}
+\toprule
+\textbf{Scheme} &
+\textbf{Real Endpoint} &
+\textbf{Transaction Path} &
+\textbf{DUT-visible Interface} &
+\textbf{Software-visible Commands} &
+\textbf{Dedicated Sharing Equipment} \\
+\midrule
+Software Emulation &
+No &
+Software-modeled &
+Emulated register/DMA interface &
+Yes &
+No \\
+FMC/Local Attachment &
+Yes &
+Native PCIe path &
+Register/MMIO + DMA interface &
+No &
+FMC/slot \\
+SmartIO Device Lending &
+Yes &
+NTB-forwarded PCIe path &
+Register/MMIO + DMA interface &
+No &
+NTB fabric \\
+\addlinespace[0.2em]
+\textbf{SCOPE Direct Control Mode} &
+Yes &
+FPGA-routed PCIe path &
+Register/MMIO + DMA interface &
+No &
+\textbf{No} \\
+\textbf{SCOPE Proxy Forwarding Mode} &
+Yes &
+P2P + proxy-replayed MMIO &
+Semantic command interface &
+\textbf{Yes} &
+\textbf{No} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
+
+Table \ref{tab:qualitative_comparison} separates physical endpoint access from software-visible command semantics. Software emulation tools such as QEMU~\cite{bellard2005qemu} and gem5~\cite{lowe2020gem5} expose modeled operations but do not exercise a real endpoint. Physical expansion via FPGA Mezzanine Cards (FMC)~\cite{seelam2009design} (Figure \ref{fig:Environment of FPGA-based Prototyping environment}) and Non-Transparent Bridging (NTB)-based SmartIO~\cite{markussen2021smartio} (Figure \ref{fig:SmartIO}) deliver hardware PCIe transactions but require dedicated expansion or lending hardware. SCOPE instead separates a device-to-DUT P2P data path from an optional software-visible control path while reusing the FPGA bridge and host-side peripherals already present in the prototyping environment.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/ntb_pcie_device_architecture_academic.drawio.png}
+    \caption{SmartIO architecture: Multi-host device sharing mechanism based on Non-Transparent Bridging (NTB).}
+    \label{fig:SmartIO}
+\end{figure}
+
+To address this challenge, we propose SCOPE, an I/O-scalable and observable PCIe integration framework. SCOPE's architectural contribution is the FPGA-side substrate that composes these facilities into a reconfigurable path across otherwise isolated DUT and host PCIe hierarchies. The main contributions are:
+\begin{itemize}
+\item \textbf{Reconfigurable FPGA routing substrate for cross-domain register/DMA operations:} SCOPE provides programmable DUT-AXI to host-PCIe register-space remapping for egress MMIO and reverse host-PCIe to DUT-AXI translation for ingress peripheral DMA. Together, these mappings decouple a peripheral's physical location from the address domains observed by the DUT and device.
+\item \textbf{Peripheral-semantic adaptation with selectable control modes:} SCOPE separates the reusable FPGA routing substrate from a device-specific adapter that describes submission registers, command or descriptor formats, DMA-address fields, completion conventions, and event-delivery policy. The adapter can configure Direct Control Mode for low-latency register access or Proxy Forwarding Mode to expose control fields before host-side submission, while interrupt regeneration converts host-captured events into DUT-visible IRQ signals.
+\item \textbf{Scoped system evaluation:} We implement the substrate on Xilinx UltraScale+ platforms. Same-device NVMe baselines quantify Direct Control Mode and P2P routing, proxy experiments quantify observable NVMe/NIC register writes, a virtual INTx benchmark validates DUT-visible event delivery, and synthetic concurrent streams characterize the shared ingress path. NIC evaluation is limited to register control-path compatibility.
+\end{itemize}
+
+\section{Background and Motivation}
+\label{sec:background}
+
+\subsection{I/O Scalability Bottlenecks in FPGA Prototyping}
+
+Modern verification platforms increasingly adopt a Host-connected architecture~\cite{amos2011fpga} to leverage host computational resources for simulation offloading. However, despite improving management flexibility, this architecture faces severe I/O scalability bottlenecks. FPGA boards typically provide limited PCIe/M.2 interfaces, impeding the construction of multi-device topologies such as RAID arrays and multi-NIC clusters. While physical expansion via FMC~\cite{seelam2009design} is a common remedy, it poses significant practical limitations. It requires dedicated expansion infrastructure (slots, cabling, power), introduces signal integrity risks where inter-board clock skew might obscure actual DUT bugs~\cite{amos2011fpga}, and results in rigid topologies that often demand hardware rewiring or bitstream re-synthesis for test variations.
+
+\subsection{Related Work}
+\label{sec:related_work}
+
+To contextualize SCOPE within the broader landscape of FPGA-accelerated PCIe frameworks, we examine how existing solutions balance physical device access, data-path efficiency, and protocol visibility. DONGLE 2.0~\cite{wong2024dongle} enables HLS accelerators to access either FPGA-attached or host-attached NVMe storage through a unified programming interface. Zero2M~\cite{wang2026zero2m} moves NVMe queue management into FPGA hardware to enforce multi-tenant storage QoS, while CeDMA~\cite{li2025cedma} centralizes DMA control across heterogeneous accelerator nodes. These systems focus on application acceleration, scheduling, or storage-side computation. SCOPE instead targets processor-DUT validation by exposing host-side peripherals through a reconfigurable FPGA routing substrate while retaining hardware-level protocol semantics and an optional observable control path.
+
+Device lending and virtualization provide complementary ways to share physical peripherals, but they make different trade-offs for validation. SmartIO~\cite{markussen2021smartio} uses NTB adapters and pre-established address mappings to lend standard PCIe devices without software on the data path. SCOPE does not target lower latency than SmartIO; it targets FPGA DUT validation without a dedicated NTB lending fabric and adds an optional observable control path. VirtIO~\cite{russell2008virtio} and related virtualization interfaces abstract device operations into paravirtualized requests, whereas SCOPE exposes explicit hardware-level protocol semantics before requests reach the physical device. This visibility is important for driver development because verification engineers need to inspect details such as doorbell writes, queue pointer updates, and interrupt signaling sequences. Linux p2pdma~\cite{linux_p2pdma} and QDMA P2P support enable peer-to-peer transfers within a single host or segment domain, but do not by themselves bridge the physically isolated DUT and host PCIe hierarchies.
+
+SCOPE also differs from FPGA-based pre-silicon prototyping platforms. FireSim~\cite{karandikar2018firesim}, FASED~\cite{biancolin2019fased}, and RAMP Gold~\cite{tan2010rampgold} use FPGA acceleration to scale processor and on-chip-system simulation, with timing models or partitioned prototypes representing components under test. Their primary concern is simulation throughput and timing fidelity rather than attaching pools of real PCIe peripherals to a processor DUT. Resource-disaggregation systems such as DirectCXL~\cite{gouk2022directcxl} demonstrate that compute and memory placement can be decoupled through a routable interconnect. SCOPE applies this principle to peripheral validation: host-side PCIe devices are exposed through software-defined register/DMA routing, while the control/data-plane separation embodied by IX~\cite{belay2014ix} keeps the high-throughput P2P path separate from the proxy path used for command-level debugging.
+
+\subsection{Design Insights and Architectural Opportunities}
+
+The challenges above motivate a shift from physical expansion to host-orchestrated peripheral routing. We derive two design insights:
+
+\begin{itemize}
+    \item \textbf{Host-mediated control visibility:} By routing control flow through the host (Figure \ref{fig:Host-Mediated Control Plane}), SCOPE uses host software as a semantic intermediary. This grants command-level visibility for logging and analysis, while the low bandwidth of control traffic prevents this observability path from limiting the data plane.
+    \item \textbf{Cross-domain zero-copy data movement:} By mapping DUT memory into the host PCIe address space (Figure \ref{fig:P2P DMA}), host-side peripherals can issue DMA transactions directly to DUT memory. The FPGA address translation layer becomes a reconfigurable routing primitive that can support different peripheral types, including NVMe SSDs and NIC register control paths, without changing the datapath.
+\end{itemize}
+
+These insights form the foundation for the system architecture proposed in the subsequent section.
+
+\section{Architecture of SCOPE Framework} \label{sec:design}
+
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/Implement_Overview_ieee.png}
+    \caption{Overall Architecture of the SCOPE Framework. (a) In Direct Control Mode, the control and data paths use bridge modules for low-latency cross-domain protocol conversion. (b) In Proxy Forwarding Mode, the control and data paths use bridge modules for packet-based command transmission.}
+    \label{fig:system_arch}
+\end{figure*}
+
+SCOPE is an FPGA routing substrate rather than a new PCIe controller, DMA engine, or user-space I/O library. Its FPGA-side mechanisms are: (1) programmable egress remapping from DUT AXI addresses into host PCIe Base Address Register (BAR) space; (2) reverse ingress translation from host PCIe bus addresses to DUT AXI memory; (3) a selectable insertion point that routes BAR control either directly through hardware or through an observable host proxy; and (4) interrupt regeneration that presents host-captured device events as DUT-visible IRQ signals. These mechanisms coordinate the existing PCIe IP and software stack around the address domains and observability requirements of FPGA-based processor validation.
+
+Consistent with the control-data plane separation philosophy espoused by IX~\cite{belay2014ix}, SCOPE explicitly decouples operation into two planes. The \textit{control plane} is responsible for semantic routing decisions such as address translation, command interception, and protocol analysis, while the \textit{data plane} handles high-throughput data movement via P2P DMA. This separation ensures that observability enhancements on the control plane do not compromise data-path performance.
+
+By analyzing the traditional PCIe device model, the interaction is decomposed into three core components:
+\begin{itemize}
+    \item \textbf{Memory Mapped IO (MMIO):} For accessing control registers to configure the device.
+    \item \textbf{Direct Memory Access (DMA):} For high-efficiency data transfer between the Host and the device.
+    \item \textbf{Interrupt:} For event notification from the device to the Host.
+\end{itemize}
+
+To enable the DUT to access host-side peripherals, the substrate realizes three mechanisms: \textit{Control Transaction Propagation}, \textit{Cross-Domain DMA}, and \textit{Interrupt Substitution}. Their contribution is the coordinated cross-domain routing behavior, not the underlying standard PCIe, DMA, or user-space I/O components in isolation.
+
+\subsection{Control Transaction Propagation Mechanism} \label{sec:design_control}
+
+The core of the control path ensures reliable delivery of DUT-initiated MMIO operations. To accommodate diverse verification requirements, we design two control modes.
+
+Direct Control Mode requires SCOPE-aware DUT-side drivers, while Proxy Forwarding Mode uses an explicit split-driver control plane
+
+\subsubsection{Direct Control Mode} \label{sec:design_direct}
+In performance-sensitive scenarios requiring minimal latency (\textbf{performance validation}), Direct Control Mode uses a direct mapping strategy. As shown in Figure \ref{fig:system_arch}(a), the system maps host peripheral registers into the DUT's physical address space. DUT-side software then issues MMIO operations carrying the device's hardware-level BAR semantics through this mapped aperture. Direct Control Mode focuses on low-latency BAR access through explicit DUT-side software configuration rather than OS PCIe enumeration of the remote peripheral.
+
+The key abstraction is that command submission for many PCIe peripherals is initiated by writes to device BAR space. The device-specific adapter identifies the relevant submission register and its semantics, while the common mapping table routes the resulting MMIO transaction. For example, NVMe uses submission/completion queue doorbells, whereas a descriptor-ring device can use a queue producer or tail register. Retargeting this control operation changes the adapter configuration rather than the FPGA bridge datapath.
+
+However, a challenge arises at the OS level: since the remote device is not attached to the DUT's local Root Complex, standard bus enumeration fails, rendering kernel-based management ineffective. To resolve this, we propose a \textbf{Kernel Bypass Access Paradigm}. By mapping the control path directly to the user virtual address space, a lightweight user-space driver manages device configuration, effectively circumventing the kernel's logical identity validation while ensuring reliable control.
+
+\subsubsection{Proxy Forwarding Mode} \label{sec:design_proxy}
+For scenarios requiring granular observability (System Behavior Analysis), we propose a \textbf{Proxy Forwarding Mode}. As illustrated in Figures \ref{fig:system_arch}(b) and \ref{fig:Host-Mediated Control Plane}, the host coordinator handles control commands initiated by the DUT.
+
+Instead of direct hardware interaction, the DUT-side proxy driver serializes register operations into command packets for the host. The host coordinator parses these requests, executes the actual MMIO operations, and returns the response. The common proxy request carries the destination BAR offset and write value; the semantic adapter may additionally decode or snapshot the associated command or descriptor when deeper observability is required. Descriptors need not be copied into the proxy path when the physical device can fetch them from DUT memory through cross-domain P2P DMA. Proxy Forwarding Mode intentionally trades control-path latency for command visibility and intervention; it is intended for device bring-up, command tracing, and fault analysis. Direct Control Mode is used when control-path latency or peripheral performance is the evaluation target.
+
+\subsection{The Cross-Domain DMA Mechanism} \label{sec:design_data}
+To achieve high-efficiency, zero-copy data transmission, we propose a routing mechanism based on \textbf{PCIe P2P technology}. The core concept involves exposing the DUT's physical memory to the host address domain via BARs and configuring the peripheral's DMA target to point to this space.
+
+To ensure integrity, an \textbf{Address Domain Translation} mechanism within the FPGA remaps ingress TLPs from the Host domain to the DUT's local AXI domain. Simultaneously, Protocol Translation logic converts PCIe Memory Read/Write TLPs into DUT-local AXI transactions. This seamless redirection ensures that peripheral-initiated DMA requests are correctly routed to the DUT memory, bypassing Host memory buffering entirely.
+
+\subsection{Interrupt Substitution Mechanism}
+Since host-side interrupts cannot physically reach the DUT, an Interrupt Substitution Mechanism is required to maintain system responsiveness. We design two schemes catering to different driver architectures.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/用户态轮询机制替代中断.drawio.png}
+    \caption{Polling-Based Substitution Mechanism for latency-sensitive status monitoring}
+    \label{fig:Polling-Based}
+\end{figure}
+
+\subsubsection{Polling-Based Substitution} \label{sec:design_polling}
+For high-throughput user-space applications, we utilize a polling approach. As illustrated in Figure \ref{fig:Polling-Based}, the DUT driver actively monitors the Completion Queue (CQ) in memory for status updates written by the device. This eliminates kernel context switching overhead, optimizing performance for throughput-sensitive workloads\cite{yang2012poll}.
+
+\subsubsection{Interrupt Source Modification} \label{sec:design_injection}
+For interrupt-driven software, we implement an ``Interrupt Source Modification'' scheme. As depicted in Figure \ref{fig:Interrupt Source Modification}, the host coordinator captures physical MSI-X interrupts and encapsulates them into messages sent to the FPGA. Internal logic then decodes these messages and asserts physical IRQ lines to the DUT processor, providing a DUT-visible event-delivery path compatible with its configured interrupt handler.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/Interrupt_sub.drawio.png}
+    \caption{Architecture of the Interrupt Source Modification Mechanism.}
+    \label{fig:Interrupt Source Modification}
+\end{figure}
+
+\subsection{Peripheral Adaptation Methodology}
+\label{sec:design_adaptation}
+
+SCOPE separates a reusable cross-domain FPGA routing substrate from a device-specific semantic adapter. The FPGA routing substrate retains the same BAR routing, reverse DMA translation, control-mode selection, proxy transport, and interrupt-regeneration mechanisms across peripheral classes. Adapting a PCIe peripheral requires describing five elements:
+\begin{enumerate}
+    \item \textbf{Submission trigger:} the BAR register and write semantics that notify the device of new work, such as a doorbell or queue-tail update.
+    \item \textbf{Work description:} the command, queue entry, or descriptor format associated with the submission trigger.
+    \item \textbf{DMA addressing:} the fields that identify DUT-resident payload and metadata buffers and must be mapped into the host PCIe address domain.
+    \item \textbf{Completion convention:} the completion queue, descriptor write-back, or status field through which the device reports progress.
+    \item \textbf{Event policy:} whether completion is observed by polling or delivered through the interrupt-regeneration path.
+\end{enumerate}
+
+These elements define the boundary between common FPGA routing and device-specific protocol semantics. In Direct Control Mode, the adapter configures the BAR aperture and DMA-address mappings used by the DUT-side software. In Proxy Forwarding Mode, it identifies the control operation to intercept and, when required for debugging, the command or descriptor fields to decode. NVMe realizes this model through SQ/CQ doorbells, command entries, PRP/SGL addresses, and completion queues. A modern NIC follows the same DMA-driven structure using descriptor rings, queue producer or tail registers, buffer addresses, and completion write-back. 
+
+
+\section{Implementation}
+\label{chap:implementation}
+
+\subsection{Overview}
+
+SCOPE maps the two control modes onto two decoupled PCIe paths on Xilinx UltraScale+ devices. Direct Control Mode uses the QDMA bridge path for AXI--PCIe conversion and programmed BAR/address remapping, while Proxy Forwarding Mode uses an XDMA stream path to exchange command packets with the host coordinator. The FPGA routing substrate is device-independent; device-specific software supplies the semantic adapter for BAR triggers, descriptor fields, DMA addresses, completions, and events.
+
+\subsection{Control Path Implementation}
+\label{sec:impl_control}
+
+In Direct Control Mode, DUT-side software maps the FPGA aperture through \texttt{mmap} and issues load/store accesses to retargeted BAR registers. The address-mapping table translates DUT AXI addresses into host PCIe addresses, allowing the same bridge path to reach an NVMe BAR or NIC BAR by changing the target base and offset.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/proxy_forwarding_software_architecture_revised.drawio.png}
+    \caption{Split-Driver Software Architecture for Proxy Forwarding Mode. The system decouples the control logic from physical transmission through a three-layer abstraction: Protocol, Transport, and Physical Interface.}
+    \label{fig:proxy_sw_arch}
+\end{figure}
+
+In Proxy Forwarding Mode, the DUT-side proxy driver serializes intercepted BAR operations into DMA packets. The host coordinator receives these packets through the XDMA stream interface and dispatches them to a protocol layer built on DPDK/SPDK~\cite{dpdkdoc,yang2017spdk,belay2014ix}. The implemented NVMe adapter decodes command capsules before submission, while a generic BAR-write adapter forwards offset/value tuples for NIC BAR-control evaluation.
+
+\subsection{Data Path Implementation}
+\label{sec:impl_data}
+
+The data path separates device-specific queue preparation from generic FPGA routing. The host coordinator rewrites DUT-local buffer addresses into host-side PCIe bus addresses before submitting device commands. For NVMe, this requires parsing and rewriting PRP entries. When the device issues DMA, the QDMA bridge receives the resulting TLPs and the FPGA ATU translates them back into the DUT AXI address domain. Descriptor-ring devices can reuse the same FPGA routing substrate once their semantic adapter identifies the relevant buffer-address fields.
+
+\subsection{Interrupt Substitution Implementation}
+\label{sec:impl_interrupt}
+
+Polling-based operation uses SPDK-style completion-queue polling: the DUT software checks CQ phase tags, processes completed entries, and advances the head doorbell without registering an ISR. For interrupt-driven operation, a host kernel module captures MSI-X events~\cite{budruk2004pci} and sends compact interrupt packets through the control DMA path; FPGA logic decodes the vector and asserts the corresponding DUT-visible IRQ line.
+
+\textbf{Virtual INTx Test Endpoint:}
+For controlled characterization, we implement a virtual INTx endpoint with \texttt{TRIGGER} and \texttt{CLEAR} registers in BAR0. \texttt{TRIGGER} requests host coordinator injection through the FPGA interrupt path, and \texttt{CLEAR} deasserts the level after the DUT handler runs. The endpoint isolates host-to-DUT injection and regeneration rather than physical-device MSI-X capture latency.
+
+\section{Experimental Evaluation}
+
+The evaluation isolates the measured behavior of the implemented FPGA routing substrate. Micro-benchmarks quantify BAR control, virtual INTx injection, and NVMe P2P data paths, end-to-end tests exercise NVMe operation on hard-core and soft-core DUTs, and synthetic concurrent Memory Write ingress streams stress the shared FPGA Memory-Write ingress path. NIC measurements cover BAR control-path compatibility rather than packet TX/RX or NIC DMA.
+
+\subsection{Experimental Setup}
+The experimental platform is anchored by an Intel Xeon Gold 6248R host, enterprise-grade NVMe SSDs (Intel P4510), and a host-side PCIe NIC. We employ two FPGA platforms and three DUT implementations for complementary evaluation objectives:
+
+\begin{itemize}
+    \item \textbf{ARM Cortex-A53 on XCZU19EG:} The 1.2 GHz hard core evaluates Direct Control Mode and the high-throughput P2P path without making a low-frequency soft core the primary limiter.
+    \item \textbf{RocketChip on XCZU19EG:} The 100 MHz configurable RISC-V soft core~\cite{asanovic2016rocket} evaluates end-to-end operation on a processor instantiated in the FPGA fabric.
+    \item \textbf{XiangShan Nanhu-G on VU37P:} The 50 MHz out-of-order RISC-V DUT~\cite{micro2022xiangshan} evaluates the observable Proxy Forwarding Mode. The VU37P provides sufficient logic and memory resources for Nanhu-G and the proxy transport path.
+\end{itemize}
+
+This division demonstrates that SCOPE's transaction-routing abstraction applies across multiple DUT implementations.
+
+To instantiate the dual-mode architecture, the hardware incorporates two decoupled PCIe IP cores. The \textbf{Xilinx QDMA~\cite{amd_xilinx_qdma} Subsystem}, configured in Bridge Mode, serves as the AXI-PCIe conversion bridge for Direct Control Mode and the P2P data path. The \textbf{Xilinx XDMA~\cite{amd_xilinx_pcie_dma} Subsystem}, deployed in Stream Mode, functions as a packet DMA engine for Proxy Forwarding Mode, isolating proxy control traffic from the high-throughput data path. On the software side, the stack features a custom SPDK-based user-space driver and a specialized fabric transport layer to implement address mapping and interrupt handling. The interrupt benchmark uses a DUT-side proxy driver and the virtual INTx endpoint described in Section~\ref{sec:impl_interrupt}.
+
+\subsection{Micro-benchmark Analysis}
+
+\subsubsection{Control Path Latency}
+\label{sec:eval_control_latency}
+We evaluate control-plane latency across two control modes: Direct Control Mode register access and Proxy Forwarding Mode register-write access.
+
+\textbf{1. Direct Control Mode Register Access:}
+We measure DUT-observed MMIO-write latency for peripheral BAR registers directly mapped into the DUT address space. The interval begins when the DUT issues the write request and ends when it receives the corresponding AXI B response; it therefore measures the requester-visible mapped-write path rather than the device's internal completion time. Table \ref{tab:direct_bar_latency} shows that the ARM hard core takes 1295.11 ns to write the host-side NVMe BAR, 159.11 ns (14.0\%) above the 1136.00 ns FPGA-side NVMe baseline. RocketChip takes 1616.35 ns for the host-side NVMe BAR, 477.78 ns (42.0\%) above its 1138.57 ns FPGA-side baseline; this absolute value also includes the request path of the 100 MHz soft core. Retargeting the same mapping to the host-side NIC yields 1143.38 ns and 1432.90 ns for ARM and RocketChip, respectively. The FPGA board has no locally attached NIC, so an FPGA-side NIC baseline is unavailable.
+
+\begin{table}[htbp]
+    \centering
+    \scopeTableCaption{Direct Control Mode Register MMIO Write Latency}{tab:direct_bar_latency}
+    \renewcommand{\arraystretch}{1}
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        \textbf{Processor} & \textbf{FPGA-side NVMe} & \textbf{Host-side NVMe} & \textbf{Host-side NIC} \\
+        \midrule
+        ARM A53 & 1136.00 ns & 1295.11 ns & 1143.38 ns \\
+        RocketChip & 1138.57 ns & 1616.35 ns & 1432.90 ns \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\textbf{2. Proxy Forwarding Mode Register-Write Access:}
+We evaluate Proxy Forwarding Mode on a 50 MHz XiangShan Nanhu-G DUT using the same procedure for the NVMe and NIC BAR targets. The FPGA starts a 250 MHz latency counter when it receives the Nanhu-G BAR-write request, encapsulates the request for the host proxy, and stops the measurement when Nanhu-G receives the returned AXI B response after the proxy has accessed the real device BAR. Thus, the reported value is a DUT-observed time from request arrival at the FPGA to write-response delivery, with a 4 ns counter resolution. Each target is measured over 1000 operations.
+
+Table~\ref{tab:proxy_bar_write_latency} reports mean proxy-path latencies of 29.92~$\mu$s for the NVMe BAR and 28.06~$\mu$s for the NIC BAR. As a reference point, NVMe-oF TCP is a software-based remote NVMe transport that carries NVMe commands over standard TCP/IP networks, and is commonly used as a practical low-latency baseline for remote storage access. SCOPE's proxy-path latency is slightly lower than the reported NVMe-oF TCP latency of 31.52~$\mu$s~\cite{spdk_tcp_bdev_2205}. This result indicates that Proxy Forwarding Mode can expose BAR-level control events for command tracing while keeping the added delay within the range of an accepted remote-I/O software path. Therefore, Proxy Forwarding Mode is sufficient for system behavior analysis.
+
+\begin{table}[htbp]
+    \centering
+    \scopeTableCaption{Proxy Forwarding Mode BAR-Write Latency on XiangShan Nanhu-G}{tab:proxy_bar_write_latency}
+    \renewcommand{\arraystretch}{1.15}
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        \textbf{Target BAR} & \textbf{Mean Latency} \\
+        \midrule
+        NVMe BAR & 29.92 $\mu$s \\
+        NIC BAR & 28.06 $\mu$s \\
+        \bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\subsubsection{Virtual INTx Injection Path}
+\label{sec:eval_interrupt}
+
+We validate DUT-visible event delivery with the virtual INTx endpoint. The DUT-side proxy driver performs 100 trigger-and-clear interrupt cycles, while the host coordinator records the adjusted injection fast-path latency. All 100 interrupts reached the DUT-side handler without timeout or unexpected events. The mean adjusted host coordinator injection latency is 956.81 ns, which is only 3.2\% of the 29.92 $\mu$s NVMe proxy BAR-write latency. This result shows that virtual INTx regeneration adds negligible latency relative to proxy BAR forwarding.
+
+
+
+\subsubsection{Data Path Performance (P2P DMA)}
+This experiment evaluates the efficiency of the PCIe P2P data path by comparing DMA transfers from host-side NVMe devices to FPGA memory versus host memory.
+
+\textbf{Bandwidth \& IOPS:}
+Figure \ref{fig:128k_bw} compares the P2P path with a host-memory target using the same NVMe device. The FPGA-memory path achieves 2596.3 MB/s versus 2620.5 MB/s for 128K sequential reads, retaining 99.1\% of the baseline, and 236777.4 versus 240372.3 IOPS for 4K random reads, retaining 98.5\%. For writes, it achieves 729.5 versus 1023.3 MB/s and 188433.4 versus 244780.9 IOPS, retaining 71.3\% and 77.0\%, respectively. The read/write asymmetry is consistent with back-pressure caused by finite posted-data credits and write-acceptance buffering in the current bridge implementation. We have not yet instrumented credit occupancy at each stage, so this result identifies a likely bottleneck rather than proving that credit exhaustion is the sole cause.
+
+\textbf{Write-Path Optimization:}
+The current write gap is an implementation limitation rather than a requirement of the cross-domain routing model. Planned optimizations include increasing PCIe receive buffering and the advertised posted-data credit budget where supported by the IP configuration, decoupling PCIe ingress from AXI back-pressure with deeper queues, increasing the number of outstanding AXI writes, and tuning payload size and AXI burst formation to reduce per-transaction overhead. We will evaluate these changes with PCIe flow-control counters and matched TLP/AXI traces, then repeat the same-device bandwidth and IOPS tests to isolate the contribution of each optimization.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.05\linewidth]{figures/主机FPGA合并.drawio.png}
+    \caption{128K Sequential Read/Write Bandwidth and 4K Random Read/Write IOPS Comparison.}
+    \label{fig:128k_bw}
+\end{figure}
+
+
+
+\subsection{Synthetic Ingress Scalability Analysis}
+
+Having established the baseline efficiency of the P2P data path, we further characterize the scalability of the shared FPGA ingress path under concurrent PCIe Memory Write traffic. This path represents the direction in which host-side peripherals write data into DUT-visible FPGA memory. Architectural analysis of pre-silicon prototyping environments motivates such concurrent stress testing to expose arbitration bottlenecks and memory-access saturation~\cite{karandikar2018firesim}. Accordingly, we devise a Host-Injected Traffic Stress Test that generates multiple independent PCIe Memory Write streams into distinct FPGA BAR regions, stressing the FPGA internal interconnect, address-translation logic, and memory-write arbitration. 
+
+\textbf{Methodology:}
+We developed a custom multi-threaded micro-benchmark to generate independent synthetic DMA ingress streams from multiple host threads. Each thread performs continuous bulk transfers to a distinct FPGA BAR offset, creating concurrent PCIe Memory Write transactions that model Memory-Write ingress traffic generated by up to 16 independent PCIe peripherals.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/v3/扩展性时间.png}
+    \caption{Impact of Thread Concurrency on Average Data Transfer Time. While latency increases with contention, the system remains stable without timeouts.}
+    \label{fig:scalability_time}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/数据通路扩展性-吞吐量.png}
+    \caption{Aggregated Throughput Scalability for Synthetic Memory Write Ingress. Throughput scales approximately linearly from 1 to 8 synthetic ingress streams and approaches the write-ingress physical-path limit of about 1200 MB/s at 16 streams.}
+    \label{fig:scalability_throughput}
+\end{figure}
+
+\textbf{Result Analysis:}
+As shown in Figures \ref{fig:scalability_time} and \ref{fig:scalability_throughput}, per-stream latency increases under PCIe and AXI contention, while the system remains stable for up to 16 concurrent Memory Write streams. Aggregated Memory-Write ingress throughput scales approximately linearly from 1 to 8 streams and then converges toward the Memory-Write ingress-path saturation point of approximately \textbf{1200 MB/s} at 16 streams.
+
+
+\subsection{End-to-End System Evaluation}
+As illustrated in Figure \ref{fig:end_to_end_bw}, the SPDK-driven end-to-end evaluation shows that the ARM hard core achieves 1667.56/911.87 MB/s for sequential reads/writes and 266.6/249.5 kIOPS for random reads/writes. The 100 MHz RocketChip soft core achieves 332.02/327.75 MB/s and 13.4/13.3 kIOPS, respectively. These results demonstrate end-to-end operation across both hard-core and soft-core DUTs; the lower RocketChip result is consistent with its 100 MHz execution environment.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/ARM Rocket.drawio.png}
+    \caption{End-to-End 128K Sequential Bandwidth and 4K Random IOPS.}
+    \label{fig:end_to_end_bw}
+\end{figure}
+
+
+
+\subsection{Case Study: Command-Level Debugging of NVMe Transactions}
+
+To demonstrate Proxy Forwarding Mode's practical utility, we use it to trace and debug cross-domain NVMe command submissions. Instead of observing opaque hardware faults when a device rejects an invalid DMA mapping, developers can inspect the exact progression of address translation and control-register propagation.
+
+Figure \ref{fig:observability_log} shows the real-time proxy trace during an NVMe command submission (e.g., Identify). The framework provides deep visibility into four progressive stages:
+\begin{enumerate}
+    \item \textbf{Command Interception (\texttt{[RAW]}):} The proxy intercepts the raw command initialized by the DUT and extracts its original arguments (\texttt{prp1=0x8336a000}).
+    \item \textbf{Semantic Translation (\texttt{[PATCHED]}):} The FPGA routing substrate overwrites the device-level payload, translating the DUT-local PRP buffer address to the host-visible DUT memory address domain(\texttt{prp1=0xd2c8336a000}).
+    \item \textbf{Lifecycle Tracking (\texttt{[TRACK]}):} The system tracks the command ID (\texttt{cid=4108}) to ensure proper data visibility and completion writeback back to the DUT.
+    \item \textbf{Doorbell Replay (\texttt{[BAR][WR]}):} The proxy forwards the Submission Queue doorbell write (\texttt{SQ0\_DOORBELL}) to the physical peripheral, actively triggering execution.
+\end{enumerate}
+
+This explicit control-path exposure allows developers to verify command construction, payload integrity, and cross-domain DMA mappings before physical device execution, serving as a powerful software-accessible debugging tool for driver validation.
+
+\begin{figure}[htbp]
+    \centering
+    \scriptsize
+    \begin{verbatim}
+[CMD][RAW][ADDR] guest_pa=0x0000845ca000 bypass=0x0d2c845ca000
+[CMD][RAW] opcode=0x06 cid=4108 prp1=0x00008336a000
+[CMD][PATCHED] opcode=0x06 cid=4108 prp1=0x0d2c8336a000
+[CMD][WRITEBACK][OK] guest_pa=0x0000845ca000
+[CMD][ADMIN][TRACK] qid=0 slot=0 cid=4108
+[BAR][WR] reg=SQ0_DOORBELL size=4 data=0x0000000100000001 OK
+    \end{verbatim}
+    \vspace{-2mm}
+    \caption{Proxy Forwarding Mode Trace Log of an NVMe Transaction. The framework explicitly exposes raw command capture, PRP physical address translation, completion tracking, and hardware doorbell replay.}
+    \label{fig:observability_log}
+\end{figure}
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that the IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command,
+% and the \label for the overall figure must come after \caption.
+% \hfil is used as a separator to get equal spacing.
+% Watch out that the combined width of all the subfigures on a 
+% line do not exceed the text width or a line break will occur.
+%
+%\begin{figure*}[!t]
+%\centering
+%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+%\label{fig_second_case}}
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat[]), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
+% labels, the optional argument to \subfloat must be present. If a
+% subcaption is not desired, just leave its contents blank,
+% e.g., \subfloat[].
+
+
+% An example of a floating table. Note that, for IEEE style tables, the
+% \caption command should come BEFORE the table and, given that table
+% captions serve much like titles, are usually capitalized except for words
+% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
+% and up, which are usually not capitalized unless they are the first or
+% last word of the caption. Table text will default to \footnotesize as
+% the IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that the IEEE does not put floats in the very first column
+% - or typically anywhere on the first page for that matter. Also,
+% in-text middle ("here") positioning is typically not used, but it
+% is allowed and encouraged for Computer Society conferences (but
+% not Computer Society journals). Most IEEE journals/conferences use
+% top floats exclusively. 
+% Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the
+% \fnbelowfloat command of the stfloats package.
+
+\section{Conclusion}
+This work presents a reconfigurable FPGA routing substrate that connects processor DUTs to host-resident PCIe peripherals without dedicated FMC or NTB-based sharing equipment. SCOPE combines cross-domain address translation, two register-forwarding control modes (Direct Control Mode and Proxy Forwarding Mode), and DUT-visible interrupt regeneration, while device-specific semantic adapters describe submission triggers, command metadata, DMA-address fields, completions, and event policy. Rather than transparently attaching remote devices to unmodified DUT drivers, Direct Control Mode uses DUT-side software and Proxy Forwarding Mode serializes control operations into observable command packets. For NVMe, SCOPE retains 99.1\% of host-memory sequential-read bandwidth and 98.5\% of random-read IOPS; the current write path retains 71.3\% and 77.0\%, leaving AXI write buffering as future optimization targets. The virtual INTx path delivers all 100 events without timeout with 956.81 ns mean host coordinator injection overhead. NIC experiments demonstrate BAR-control compatibility, and synthetic streams characterize shared FPGA write-ingress scalability.
+
+
+\newpage
+% conference papers do not normally have an appendix
+
+
+% use section* for acknowledgment
+%\section*{Acknowledgment}
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{sample-base}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+%\begin{thebibliography}{1}
+
+%\bibitem{IEEEhowto:kopka}
+%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+%\end{thebibliography}
+
+
+
+
+% that's all folks
+\end{document}
