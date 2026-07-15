@@ -6,6 +6,7 @@
 \usepackage{zh_CN-Windowsfonts}
 \usepackage{linespacing_fix}
 \usepackage{cite}
+\linespread{1.22}\selectfont
 
 \begin{document}
 \pagenumbering{gobble}
@@ -13,7 +14,7 @@
 \photo{self_pic.jpg}
 \name{闫嘉润}
 
-\contactInfo{rayyan.work@foxmail.com}{13520245328}{}{}
+\contactInfo{邮箱：rayyan.work@foxmail.com}{电话：13520245328}{}{}
 \vspace{1.2ex}
 \centerline{\sffamily\large\textbf{求职意向：}存储系统、虚拟化、云计算}
 \vspace{-1.0ex}
@@ -27,24 +28,24 @@
 \datedsubsection{\textbf{英语水平}：通过CET-4（632）\ \ CET-6（516）}{}
 
 \vspace{0.5em}
-\section{系统软件与软硬件协同能力}
+\section{专业技能}
 \begin{itemize}[parsep=0.2ex]
-  \item \textbf{系统软件开发：}C、Python、Shell；Linux 用户态开发与内核驱动调试，Makefile、Git。
-  \item \textbf{虚拟化与 PCIe：}QEMU 设备模型、VFIO、IOMMU、VirtIO；PCIe 配置空间、BAR、MMIO、DMA 地址映射和虚拟中断。
-  \item \textbf{存储与用户态 I/O：}NVMe 提交/完成队列与中断机制；SPDK、DPDK、liburing。
-  \item \textbf{FPGA 软硬协同：}AXI、Verilog、Vivado Tcl、ILA 波形调试；XDMA、QDMA、MCDMA、Data Mover、U-Boot。
+  \item \textbf{编程语言}：掌握C，熟悉Verilog、Python。
+  \item \textbf{开发环境}：熟练使用Linux、Makefile、Git等环境或工具；熟练使用Agent开发工具，并能够运用软件工程方法论和编写Skills提升开发效率和可靠性。
+  \item \textbf{虚拟化：}熟悉QEMU、KVM、VFIO、VirtIO等虚拟化技术。
+  \item \textbf{PCIe与用户态 I/O：}掌握NVMe和网卡的队列、门铃、DMA与中断机制；熟悉PCIe 配置空间、BAR、DMA和中断；熟悉SPDK用户态驱动开发。
+  \item \textbf{FPGA 软硬协同：}掌握AXI、Vivado Tcl、ILA 波形调试；掌握XDMA、QDMA、MCDMA等IP的配置与使用。
 \end{itemize}
-
+\vspace{0.1em}
 \section{项目经历}
 
 
 \datedsubsection{\textbf{远端 PCIe 外设透明接入与事务追踪系统}\ \ \ \ \ \ \textit{方向：I/O虚拟化}}{2025.04 -- 至今}
 
 \begin{itemize}[parsep=0.2ex]
-\item 设计实现虚拟PCIe Switch：硬件模块vSwitch做枚举事务解析并传递到主机；主机程序借助QEMU维护虚拟配置空间，协调 FPGA 侧配置访问与 BAR 路由，使 Linux 可按标准流程枚举完整 PCIe Switch与外设拓扑。
-\item 设计实现远端 NVMe 设备访问链路，实现 BAR/MMIO/doorbell 拦截、XDMA 消息转发、DMA 地址改写与虚拟中断注入，支持标准 NVMe 驱动进行队列初始化与数据传输。
-\item 效果：支持用户按需定义 DUT 可见的 PCIe 拓扑与外设组合，并对配置访问、设备响应和 I/O 过程进行事务追踪与可控故障注入。
-\item \textit{部分工作成果在 \textbf{FPGA领域顶刊-FCCM 2026}展示（第一作者）。}
+\item \textbf{部分工作成果在 \textbf{FPGA领域顶会-FCCM 2026}展示（第一作者）。}
+\item 面向香山软核无法直接接入主机真实 PCIe 设备的问题，构建虚拟 PCIe Switch：FPGA 经 XDMA 上报配置空间和设备寄存器（BAR）访问事务，QEMU 维护虚拟配置空间与 BAR 路由，使 Linux 按标准流程枚举多级拓扑，并可接入 \textbf{10+} 个主机侧硬盘或网卡。
+\item 构建 NVMe 与网卡的远端数据路径：QEMU 翻译 NVMe 队列 DMA 地址及网卡描述符缓冲区地址，并注入虚拟中断；I/O 数据经 PCIe P2P DMA 和 FPGA 一致性内存路径直达香山内存，避免主机复制。
 \end{itemize}
 
 \datedsubsection{\textbf{SoC-FPGA 可计算存储设备架构与统一编程模型}\ \ \ \ \ \ \textit{方向：近存储计算}} {2024.07 -- 2025.06}
@@ -54,9 +55,8 @@
   \item 基于 SPDK 完善设备侧 DMA 队列的轮询与命令分发，异步处理设备内存读写、拷贝、内存范围管理和程序执行，并向主机回传完成状态。
 \end{itemize}
 
-\datedsubsection{\textbf{裸金属 FPGA 云服务器网络化部署与设备内存隔离}\ \ \ \textit{方向：多租户内存隔离}}{2023.06 -- 2024.06}
+\datedsubsection{\textbf{FPGA 云服务器设备内存隔离}\ \ \ \textit{方向：多租户内存隔离}}{2023.06 -- 2024.06}
 \begin{itemize}[parsep=0.2ex]
-  \item 基于 Redfish/BMCWeb 构建节点远程管理与自动部署流程，借助 D-Bus、EEPROM 和 U-Boot 配置启动方式，并通过 TFTP/NFS 下发系统镜像，实现节点远程配置、部署和 SSD 启动。
   \item 为隔离多租户硬件逻辑对设备内存控制器的竞争，设计每租户独占的双向 DMA 路径；基于 SPDK 用户态驱动，使用大页和描述符链提交并回收 DMA 传输。
   \item 自主实现 \textbf{DMA Writer}，将驱动提供的目标地址与 MCDMA 流式数据关联，生成 AXI4-MM 写事务，实现主机侧与租户设备内存间的隔离搬运。
 \end{itemize}
