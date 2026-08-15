@@ -6,7 +6,7 @@
 \usepackage{zh_CN-Windowsfonts}
 \usepackage{linespacing_fix}
 \usepackage{cite}
-\linespread{1.22}\selectfont
+\linespread{1.14}\selectfont
 
 \begin{document}
 \pagenumbering{gobble}
@@ -40,30 +40,31 @@
 \section{项目经历}
 
 
-\datedsubsection{\textbf{远端 PCIe 外设透明接入与事务追踪系统}\ \ \ \ \ \ \textit{方向：I/O虚拟化}}{2025.04 -- 至今}
+\datedsubsection{\textbf{FPGA-主机软件协同的远端 PCIe 外设接入系统}\ \ \textit{方向：I/O 虚拟化}}{2025.04 -- 至今}
 
 \begin{itemize}[parsep=0.2ex]
-\item \textbf{部分工作成果在 \textbf{FPGA领域顶会-FCCM 2026}展示（第一作者）。}
-\item 面向香山软核无法直接接入主机真实 PCIe 设备的问题，构建虚拟 PCIe Switch：FPGA 经 XDMA 上报配置空间和设备寄存器（BAR）访问事务，QEMU 维护虚拟配置空间与 BAR 路由，使 Linux 按标准流程枚举多级拓扑，并可接入 \textbf{10+} 个主机侧硬盘或网卡。
-\item 构建 NVMe 与网卡的远端数据路径：QEMU 翻译 NVMe 队列 DMA 地址及网卡描述符缓冲区地址，并注入虚拟中断；I/O 数据经 PCIe P2P DMA 和 FPGA 一致性内存路径直达香山内存，避免主机复制。
+\item \textbf{需求：}解决 FPGA 板卡上待测处理器直连 PCIe 外设受限的问题，使其 Linux 系统可以枚举到主机侧 NVMe、NIC 和 GPU，并使访问远端外设的行为与本地访问一致。
+\item \textbf{方法：}设计软硬件协同的远端设备接入框架；FPGA vSwitch 提供标准 ECAM/BAR 窗口，完成配置空间 shadow、BAR 路由及 MMIO 事件转发；主机协调软件维护寄存器、FPGA 内存中的队列、主机地址域到 FPGA 地址域的转换，以及中断的跨域传递。
+\item \textbf{效果：}实现 Linux 原生枚举的虚拟 PCIe 外设拓扑；NVMe/NIC/GPU 通过 PCIe P2P DMA 直接访问待测处理器内存, 并实现GPUDirect Storage，减少数据搬运次数；部分成果在 FPGA 领域顶会 FCCM 2026 展示（第一作者）。
 \end{itemize}
 
 \datedsubsection{\textbf{SoC-FPGA 可计算存储设备架构与统一编程模型}\ \ \ \ \ \ \textit{方向：近存储计算}} {2024.07 -- 2025.06}
 \begin{itemize}[parsep=0.2ex]
-  \item 将 SoC-FPGA 计算存储设备抽象为可编程外设：主机应用通过统一接口管理设备内存、加载程序并提交执行任务，使数据可在靠近存储的设备侧完成处理。
-  \item 为承载设备内存读写、程序加载等不同请求，完善用户缓冲区到内核传输请求的映射与组装；支持控制命令携带程序片段、数据读写独立传输。
-  \item 基于 SPDK 完善设备侧 DMA 队列的轮询与命令分发，异步处理设备内存读写、拷贝、内存范围管理和程序执行，并向主机回传完成状态。
+  \item \textbf{需求：}面向传统存储系统中数据频繁搬运带来的开销，构建可在存储设备侧加载并执行计算任务的 SoC-FPGA 计算存储原型。
+  \item \textbf{方法：}设计统一主机编程接口，将设备内存管理、程序加载和任务执行封装为计算存储请求；完成用户缓冲区到内核请求的映射与组装，并基于 QDMA、MCDMA 和 SPDK 实现命令传输、数据搬运及设备侧异步分发。
+  \item \textbf{效果：}打通主机应用到计算存储设备的端到端链路，支持主机远程管理设备内存、传输数据、加载程序和提交计算任务，并完成 Blowfish、Grep 和设备内存拷贝验证。
 \end{itemize}
 
 \datedsubsection{\textbf{FPGA 云服务器设备内存隔离}\ \ \ \textit{方向：多租户内存隔离}}{2023.06 -- 2024.06}
 \begin{itemize}[parsep=0.2ex]
-  \item 为隔离多租户硬件逻辑对设备内存控制器的竞争，设计每租户独占的双向 DMA 路径；基于 SPDK 用户态驱动，使用大页和描述符链提交并回收 DMA 传输。
-\item 实现 \textbf{DMA Writer}，将SQDK驱动提供的目标地址与 MCDMA 流式数据关联，生成 AXI4-MM 写事务，实现主机侧与租户设备内存间的隔离搬运。
+  \item \textbf{需求：}解决 FPGA 云服务器中多个租户逻辑共享设备内存控制器时的访问竞争与相互干扰，为不同租户提供相互隔离的数据搬运通路。
+  \item \textbf{方法：}为每个租户设计独立的双向 MCDMA 通道，并基于 SPDK 用户态驱动使用大页内存和描述符链提交 DMA 请求；实现 DMA Writer，将目标地址与租户流式数据关联并转换为 AXI4-MM 写事务。
+  \item \textbf{效果：}实现主机内存与租户设备内存之间的隔离搬运，完成 10 个 MCDMA 实例部署及多通道并行传输验证。
 \end{itemize}
 
-\vspace{-0.6ex}
-{\small \textbf{自我评价：}具备良好的团队协作与沟通意识，乐于支持同伴解决问题；保持主动学习和持续改进，能在复杂软硬件协同任务中积极推进问题闭环。\par}
-
+%\vspace{-0.6ex}
+%\section{自我评价}
+%具备良好的团队协作与沟通意识，乐于支持同伴解决问题；保持主动学习和持续改进，能在复杂软硬件协同任务中积极推进问题闭环。
 %% Reference
 %\newpage
 %\bibliographystyle{IEEETran}
