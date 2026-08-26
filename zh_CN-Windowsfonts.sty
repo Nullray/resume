@@ -1,48 +1,32 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{zh_CN-Windowsfonts}[2026/07/06 Windows CJK fonts Package]
+\ProvidesPackage{zh_CN-Windowsfonts}[2026/08/26 Cross-platform CJK font setup]
 
 \RequirePackage{fontspec}
 \RequirePackage{xeCJK}
 
-\defaultfontfeatures{Mapping=tex-text}
+\defaultfontfeatures{Ligatures=TeX}
+\xeCJKsetup{CJKecglue=\hskip 0.05em}
 
-\setCJKmainfont[
-  Path = C:/Windows/Fonts/,
-  UprightFont = simsun.ttc,
-  BoldFont = simhei.ttf,
-  ItalicFont = simkai.ttf,
-  SmallCapsFont = simhei.ttf,
-  AutoFakeBold = 2.5
-]{simsun.ttc}
-
-\setCJKsansfont[
-  Path = C:/Windows/Fonts/,
-  UprightFont = simhei.ttf,
-  BoldFont = simhei.ttf,
-  AutoFakeBold = 2.5
-]{simhei.ttf}
-
-\setCJKmonofont[
-  Path = C:/Windows/Fonts/,
-  AutoFakeBold = 2.5
-]{simfang.ttf}
-
-\setCJKfamilyfont{zhsong}[
-  Path = C:/Windows/Fonts/,
-  AutoFakeBold = 2.5
-]{simsun.ttc}
-\setCJKfamilyfont{zhhei}[
-  Path = C:/Windows/Fonts/,
-  AutoFakeBold = 2.5
-]{simhei.ttf}
-\setCJKfamilyfont{zhkai}[
-  Path = C:/Windows/Fonts/,
-  AutoFakeBold = 2.5
-]{simkai.ttf}
-\setCJKfamilyfont{zhfs}[
-  Path = C:/Windows/Fonts/,
-  AutoFakeBold = 2.5
-]{simfang.ttf}
+% Prefer Microsoft YaHei on Windows for the clean sans-serif look used by the
+% reference resume. Fall back to Noto Sans CJK SC so the source also compiles
+% on Linux/CI without changing the document.
+\IfFontExistsTF{Microsoft YaHei}{%
+  \setCJKmainfont[AutoFakeBold=2.0,AutoFakeSlant=0.15]{Microsoft YaHei}
+  \setCJKsansfont[AutoFakeBold=2.0,AutoFakeSlant=0.15]{Microsoft YaHei}
+  \setCJKmonofont{Microsoft YaHei}
+  \setCJKfamilyfont{zhsong}{Microsoft YaHei}
+  \setCJKfamilyfont{zhhei}{Microsoft YaHei}
+  \setCJKfamilyfont{zhkai}{Microsoft YaHei}
+  \setCJKfamilyfont{zhfs}{Microsoft YaHei}
+}{%
+  \setCJKmainfont[AutoFakeBold=2.0,AutoFakeSlant=0.15]{Noto Sans CJK SC}
+  \setCJKsansfont[AutoFakeBold=2.0,AutoFakeSlant=0.15]{Noto Sans CJK SC}
+  \setCJKmonofont{Noto Sans Mono CJK SC}
+  \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}
+  \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}
+  \setCJKfamilyfont{zhkai}{AR PL KaitiM GB}
+  \setCJKfamilyfont{zhfs}{Noto Serif CJK SC}
+}
 
 \newcommand*{\songti}{\CJKfamily{zhsong}}
 \newcommand*{\heiti}{\CJKfamily{zhhei}}
