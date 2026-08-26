@@ -3,69 +3,115 @@
 % !Mode:: "TeX:UTF-8"
 
 \documentclass{resume}
+
 \usepackage{zh_CN-Windowsfonts}
 \usepackage{linespacing_fix}
 \usepackage{cite}
+
 \linespread{1.14}\selectfont
 
 \begin{document}
+
 \pagenumbering{gobble}
 
 \photo{self_pic.jpg}
+
 \name{闫嘉润}
 
 \contactInfo{邮箱：rayyan.work@foxmail.com}{电话：13520245328}{}{}
-\vspace{1.2ex}
-\centerline{\sffamily\large\textbf{求职意向：}存储系统、虚拟化、云计算、AI Infra}
-\vspace{-1.0ex}
 
 
-\vspace{-1.2ex}
+
+\centerline{\sffamily\large\textbf{求职意向：}存储系统、I/O虚拟化、云计算、AI Infra}
+
+\vspace{-0.6em}
 
 \section{教育背景}
-\datedsubsection{\textbf{中国科学院大学 / 中国科学院计算技术研究所}：电子信息专业\ \ 硕士}{2024.09 -- 2027.06}
-\datedsubsection{\textbf{电子科技大学}：软件工程专业（嵌入式系统方向）\ \ 本科}{2020.09 -- 2024.06}
-\datedsubsection{\textbf{英语水平}：通过CET-4（632）\ \ CET-6（516）}{}
 
-\vspace{0.5em}
+\datedsubsection{\textbf{中国科学院大学 / 中国科学院计算技术研究所}：电子信息专业\ \ 硕士}{2024.09 -- 2027.06}
+
+\datedsubsection{\textbf{电子科技大学}：软件工程专业（嵌入式系统方向）\ \ 本科}{2020.09 -- 2024.06}
+
+\datedsubsection{\textbf{英语水平}：CET-4（632）\ \ CET-6（516）}{}
+
+\vspace{-0.3em}
+
 \section{专业技能}
+
 \begin{itemize}[parsep=0.2ex]
-  \item \textbf{编程语言}：掌握C，熟悉Verilog、Python。
-  \item \textbf{开发环境}：熟练使用Linux、Makefile、Git等环境或工具；熟练使用Agent开发工具，并能够运用软件工程方法论和编写Skills提升开发效率和可靠性。
-  \item \textbf{虚拟化：}熟悉QEMU、KVM、VFIO、VirtIO等虚拟化技术。
-  \item \textbf{PCIe与用户态 I/O：}掌握NVMe和网卡的队列、门铃、DMA与中断机制；熟悉PCIe 配置空间、BAR、DMA和中断；熟悉SPDK用户态驱动开发。
-  \item \textbf{FPGA 软硬协同：}掌握AXI、Vivado Tcl、ILA 波形调试；掌握XDMA、QDMA、MCDMA等IP的配置与使用。
+
+  \item \textbf{编程语言：}掌握C，熟悉Verilog、Python。
+
+  \item \textbf{开发环境：}熟练使用Linux、Makefile、Git等开发环境与工具。
+
+  \item \textbf{虚拟化：}熟悉QEMU、KVM、VFIO、VirtIO等虚拟化技术，了解虚拟PCIe设备枚举、地址空间映射及设备透传机制。
+
+  \item \textbf{PCIe与存储I/O：}掌握PCIe配置空间、BAR、DMA及MSI/MSI-X/INTx机制；掌握NVMe队列、Doorbell、PRP及DMA数据通路，熟悉SPDK用户态存储开发。
+
+  \item \textbf{高速设备互联：}熟悉PCIe P2P、RDMA基本机制及数据通路；了解GPUDirect Storage等GPU与存储直接数据传输技术。
+
+  \item \textbf{FPGA软硬协同：}掌握AXI、Vivado Tcl、ILA波形调试；掌握XDMA、QDMA、MCDMA等IP的配置、驱动及软硬件联调。
+
 \end{itemize}
-\vspace{0.1em}
+
+\vspace{-1.0em}
+
 \section{项目经历}
 
-
-\datedsubsection{\textbf{FPGA-主机软件协同的远端 PCIe 外设接入系统}\ \ \textit{方向：I/O 虚拟化}}{2025.04 -- 至今}
+\datedsubsection{
+\textbf{FPGA-主机协同的PCIe外设接入系统}\ \
+\textbf{\ \ \  [FPT'26第一作者论文录用]}
+}{2025.04 -- 至今}
 
 \begin{itemize}[parsep=0.2ex]
-\item \textbf{需求：}解决 FPGA 板卡上待测处理器直连 PCIe 外设受限的问题，使其 Linux 系统可以枚举到主机侧 NVMe、NIC 和 GPU，并使访问远端外设的行为与本地访问一致。
-\item \textbf{方法：}设计软硬件协同的远端设备接入框架；FPGA vSwitch 提供标准 ECAM/BAR 窗口，完成配置空间 shadow、BAR 路由及 MMIO 事件转发；主机协调软件维护寄存器、FPGA 内存中的队列、主机地址域到 FPGA 地址域的转换，以及中断的跨域传递。
-\item \textbf{效果：}实现 Linux 原生枚举的虚拟 PCIe 外设拓扑；NVMe/NIC/GPU 通过 PCIe P2P DMA 直接访问待测处理器内存, 并实现GPUDirect Storage，减少数据搬运次数；部分成果在 FPGA 领域顶会 FCCM 2026 展示（第一作者）。
+
+\item \textbf{需求：}面向FPGA硅前原型验证中的外设扩展与调试需求，设计远端外设接入系统，使待测处理器能够通过标准Linux PCIe软件栈使用主机侧NVMe、NIC及GPU等真实设备。
+
+\item \textbf{虚拟PCIe Switch架构：}设计FPGA与主机软件协同的设备接入框架；FPGA vSwitch实现PCIe配置空间、BAR路由和MMIO转发，主机侧负责设备语义处理、DMA地址转换、队列管理及虚拟中断，使主机操作系统能够枚举并使用远端设备。
+
+\item \textbf{RDMA远端接入：}扩展跨主机外设接入，将香山侧I/O请求转换为远端设备操作，并通过RDMA在两台服务器间传输数据，实现标准\texttt{nvme}/\texttt{ixgbe}等驱动下的远端外设接入。
+
+\item \textbf{高性能数据通路：}基于PCIe P2P DMA实现本地/远端主机真实外设直接访问待测处理器内存，并面向Vortex GPU实现NVMe与GPU内存之间的GPUDirect Storage式直接数据通路。
+
 \end{itemize}
 
-\datedsubsection{\textbf{SoC-FPGA 可计算存储设备架构与统一编程模型}\ \ \ \ \ \ \textit{方向：近存储计算}} {2024.07 -- 2025.06}
+\datedsubsection{
+\textbf{SoC-FPGA可计算存储设备架构与统一编程模型}\ \
+\textit{方向：近存储计算}
+}{2024.07 -- 2025.06}
+
 \begin{itemize}[parsep=0.2ex]
-  \item \textbf{需求：}面向传统存储系统中数据频繁搬运带来的开销，构建可在存储设备侧加载并执行计算任务的 SoC-FPGA 计算存储原型。
-  \item \textbf{方法：}设计统一主机编程接口，将设备内存管理、程序加载和任务执行封装为计算存储请求；完成用户缓冲区到内核请求的映射与组装，并基于 QDMA、MCDMA 和 SPDK 实现命令传输、数据搬运及设备侧异步分发。
-  \item \textbf{效果：}打通主机应用到计算存储设备的端到端链路，支持主机远程管理设备内存、传输数据、加载程序和提交计算任务，并完成 Blowfish、Grep 和设备内存拷贝验证。
+
+  \item \textbf{需求：}面向传统存储系统中数据频繁搬运带来的开销，构建可在存储设备侧加载并执行计算任务的SoC-FPGA计算存储原型。
+
+  \item \textbf{方法：}设计统一主机编程接口，将设备内存管理、程序加载和任务执行封装为计算存储请求；完成用户缓冲区到内核请求的映射与组装，并基于QDMA、MCDMA和SPDK实现命令传输、数据搬运及设备侧异步分发。
+
+  \item \textbf{效果：}打通主机应用到计算存储设备的端到端链路，支持主机远程管理设备内存、传输数据、加载程序和提交计算任务，并完成Blowfish、Grep和设备内存拷贝验证。
+
 \end{itemize}
 
-\datedsubsection{\textbf{FPGA 云服务器设备内存隔离}\ \ \ \textit{方向：多租户内存隔离}}{2023.06 -- 2024.06}
+\datedsubsection{
+\textbf{FPGA云服务器设备内存隔离}\ \
+\textit{方向：多租户内存隔离}
+}{2023.06 -- 2024.06}
+
 \begin{itemize}[parsep=0.2ex]
-  \item \textbf{需求：}解决 FPGA 云服务器中多个租户逻辑共享设备内存控制器时的访问竞争与相互干扰，为不同租户提供相互隔离的数据搬运通路。
-  \item \textbf{方法：}为每个租户设计独立的双向 MCDMA 通道，并基于 SPDK 用户态驱动使用大页内存和描述符链提交 DMA 请求；实现 DMA Writer，将目标地址与租户流式数据关联并转换为 AXI4-MM 写事务。
-  \item \textbf{效果：}实现主机内存与租户设备内存之间的隔离搬运，完成 10 个 MCDMA 实例部署及多通道并行传输验证。
+
+  \item \textbf{需求：}解决FPGA云服务器中多个租户逻辑共享设备内存控制器时的访问竞争与相互干扰，为不同租户提供相互隔离的数据搬运通路。
+
+  \item \textbf{方法：}为每个租户设计独立的双向MCDMA通道，并基于SPDK用户态驱动使用大页内存和描述符链提交DMA请求；实现DMA Writer，将目标地址与租户流式数据关联并转换为AXI4-MM写事务。
+
+  \item \textbf{效果：}实现主机内存与租户设备内存之间的隔离搬运，完成多通道并行传输验证。
+
 \end{itemize}
 
-%\vspace{-0.6ex}
+%
+
 %\section{自我评价}
-%具备良好的团队协作与沟通意识，乐于支持同伴解决问题；保持主动学习和持续改进，能在复杂软硬件协同任务中积极推进问题闭环。
-%% Reference
+
+%具备良好的团队协作与沟通意识，乐于支持同伴解决问题；保持主动学习和持续改进，
+%能在复杂软硬件协同任务中积极推进问题闭环。
+
 %\newpage
 %\bibliographystyle{IEEETran}
 %\bibliography{mycite}
