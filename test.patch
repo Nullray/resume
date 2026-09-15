@@ -1,0 +1,672 @@
+diff --git a/resume-zh_CN.tex b/resume-zh_CN.tex
+index bb0fede..1433e99 100644
+--- a/resume-zh_CN.tex
++++ b/resume-zh_CN.tex
+@@ -6,113 +6,67 @@
+ 
+ \usepackage{zh_CN-Windowsfonts}
+ \usepackage{linespacing_fix}
+-\usepackage{cite}
+ 
+-\linespread{1.14}\selectfont
++\linespread{1.22}\selectfont
+ 
+ \begin{document}
+-
+ \pagenumbering{gobble}
++\fontsize{9.90pt}{12.00pt}\selectfont
+ 
+-\photo{self_pic.jpg}
+-
+-\name{闫嘉润}
+-
+-\contactInfo{邮箱：rayyan.work@foxmail.com}{电话：13520245328}{}{}
+-
+-
+-
+-\centerline{\sffamily\large\textbf{求职意向：}存储系统、I/O虚拟化、云计算、AI Infra}
+-
+-\vspace{-0.6em}
+-
+-\section{教育背景}
+-
+-\datedsubsection{\textbf{中国科学院大学 / 中国科学院计算技术研究所}：电子信息专业\ \ 硕士}{2024.09 -- 2027.06}
+-
+-\datedsubsection{\textbf{电子科技大学}：软件工程专业（嵌入式系统方向）\ \ 本科}{2020.09 -- 2024.06}
+-
+-\datedsubsection{\textbf{英语水平}：CET-4（632）\ \ CET-6（516）}{}
+-
+-\vspace{-0.3em}
+-
+-\section{专业技能}
+-
+-\begin{itemize}[parsep=0.2ex]
+-
+-  \item \textbf{编程语言：}掌握C，熟悉Verilog、Python。
+-
+-  \item \textbf{开发环境：}熟练使用Linux、Makefile、Git等开发环境与工具。
+-
+-  \item \textbf{虚拟化：}熟悉QEMU、KVM、VFIO、VirtIO等虚拟化技术，了解虚拟PCIe设备枚举、地址空间映射及设备透传机制。
+-
+-  \item \textbf{PCIe与存储I/O：}掌握PCIe配置空间、BAR、DMA及MSI/MSI-X/INTx机制；掌握NVMe队列、Doorbell、PRP及DMA数据通路，熟悉SPDK用户态存储开发。
++\headerdecor
++\photo{sunwei_photo.jpg}
+ 
+-  \item \textbf{高速设备互联：}熟悉PCIe P2P、RDMA基本机制及数据通路；了解GPUDirect Storage等GPU与存储直接数据传输技术。
++\name{孙维}
++\contactInfo{电话：15922129050（同微信）}{邮箱：veronica0129@126.com}{}{}
+ 
+-  \item \textbf{FPGA软硬协同：}掌握AXI、Vivado Tcl、ILA波形调试；掌握XDMA、QDMA、MCDMA等IP的配置、驱动及软硬件联调。
++\vspace{4.48em}
+ 
+-\end{itemize}
+-
+-\vspace{-1.0em}
+-
+-\section{项目经历}
+-
+-\datedsubsection{
+-\textbf{FPGA-主机协同的PCIe外设接入系统}\ \
+-\textbf{\ \ \  [FPT'26第一作者论文录用]}
+-}{2025.04 -- 至今}
+-
+-\begin{itemize}[parsep=0.2ex]
+-
+-\item \textbf{需求：}面向FPGA硅前原型验证中的外设扩展与调试需求，设计远端外设接入系统，使待测处理器能够通过标准Linux PCIe软件栈使用主机侧NVMe、NIC及GPU等真实设备。
+-
+-\item \textbf{虚拟PCIe Switch架构：}设计FPGA与主机软件协同的设备接入框架；FPGA vSwitch实现PCIe配置空间、BAR路由和MMIO转发，主机侧负责设备语义处理、DMA地址转换、队列管理及虚拟中断，使主机操作系统能够枚举并使用远端设备。
+-
+-\item \textbf{RDMA远端接入：}扩展跨主机外设接入，将香山侧I/O请求转换为远端设备操作，并通过RDMA在两台服务器间传输数据，实现标准\texttt{nvme}/\texttt{ixgbe}等驱动下的远端外设接入。
+-
+-\item \textbf{高性能数据通路：}基于PCIe P2P DMA实现本地/远端主机真实外设直接访问待测处理器内存，并面向Vortex GPU实现NVMe与GPU内存之间的GPUDirect Storage式直接数据通路。
++\section{教育经历}
++\educationline{北京师范大学}{\resumetag{985}\hspace{0.25em}\resumetag{双一流}}{体育人文社会学\ 体育产业和经济方向\ 硕士}{2024年09月 - 2027年06月}
++\educationline{北京体育大学}{\resumetag{211}\hspace{0.25em}\resumetag{双一流}}{旅游管理\ 体育旅游\ 本科}{2020年09月 - 2024年06月}
+ 
+-\end{itemize}
++\section{实习经历}
++\datedsubsection{北京快手科技有限公司\ 体育内容运营}{2025年01月 - 2025年07月}
++\detail{官号运维与创作者对接}{运营极限/骑行运动官方账号，超额完成考核指标\textbf{130\%}，\textbf{创历史峰值}，归因量垂类内稳居\textbf{TOP3}，人格视频创作者\textbf{TOP1}；引入建联\textbf{70+}优质创作者，运营5个社群，显著提升创作者规模与活跃度。}
++\detail{打造热点事件}{监控并挖掘体育领域热点，推动\textbf{7条}线索登上全站热搜TOP10；统筹分配\textbf{4000W+}账号流量资源，优化优质内容消费转化。}
++\detail{活动策划执行}{深度跟进\textbf{1个A级、3个S级项目}，覆盖线上内容运营与线下落地执行，保障所有项目顺利交付。}
+ 
+-\datedsubsection{
+-\textbf{SoC-FPGA可计算存储设备架构与统一编程模型}\ \
+-\textit{方向：近存储计算}
+-}{2024.07 -- 2025.06}
++\datedsubsection{中国旅游研究院（文化和旅游部数据中心）\ 院长助理}{2023年10月 - 2024年04月}
++\detail{科研研究}{协助研究院老师推进科研工作，系统化整理文献资料\textbf{200+份}，参与\textbf{2项核心数据分析}（输出有效结论6条），直接提升研究材料准确率，有效提升项目推进\textbf{效率约20\%}。}
++\detail{其他临时任务}{响应并高效完成临时性工作（含数据统计、会议协助等），零延误保障跨部门事务衔接顺畅。}
+ 
+-\begin{itemize}[parsep=0.2ex]
++\datedsubsection{北体体育文化发展（北京）有限公司\ 活动运营}{2023年02月 - 2023年06月}
++\detail{产品策划}{完成\textbf{2份}暑期体育研学产品全案制定，包含\textbf{12个特色体验环节}的研学路线，有效支撑暑期业务。}
++\detail{活动运营}{深度参与5次公司主办活动，负责宣传拍摄、合作合同修改（优化条款15处，零合同纠纷），撰写签约新闻稿5篇，篇均阅读量\textbf{2000+}，有效保障活动落地效率与品牌传播效果。}
+ 
+-  \item \textbf{需求：}面向传统存储系统中数据频繁搬运带来的开销，构建可在存储设备侧加载并执行计算任务的SoC-FPGA计算存储原型。
++\section{项目与实践经历}
++\datedsubsection{北京体育大学职业发展协会\ 留学部部长$\rightarrow$会长}{2021年10月 - 2023年09月}
++\detail{活动统筹}{策划跟进\textbf{数十场校园活动}，制定赞助合作方案，与新东方、学为贵等学习机构洽谈赞助事项，累计促成\textbf{合作5次}，活动推送累计\textbf{点击量1w+}，累计参与\textbf{人数700+}。}
++\detail{沟通联络}{与校就业部老师汇报协会学年工作计划，部署协会下各部门学年任务。}
++\detail{人员选拔}{主持协会下8个部门的部长、副部长换届选举（组织笔试、面试、无领导小组讨论等）。}
+ 
+-  \item \textbf{方法：}设计统一主机编程接口，将设备内存管理、程序加载和任务执行封装为计算存储请求；完成用户缓冲区到内核请求的映射与组装，并基于QDMA、MCDMA和SPDK实现命令传输、数据搬运及设备侧异步分发。
++\datedsubsection{“山水画境·红色遵义”线上马拉松赛事\ 核心负责人}{2022年06月 - 2022年07月}
++\detail{基本情况}{以遵义市苟坝村的长征故事为背景，打破疫情的地缘隔绝，\textbf{与苟坝体育局、北体运动有限公司合作洽谈}，以线上方式助力革命老区红色文化传播和农产品销售，带动乡村振兴。}
++\detail{赛事成效}{赛事共吸引\textbf{200余人}咨询或关注赛事动向，20名参赛者成功报名，参赛者涉及含北京、山东、云南、贵州等11个省份或直辖市。线上赛事期间发表公众号推文共计6篇，浏览量突破1700余次，分享转发50余次。}
+ 
+-  \item \textbf{效果：}打通主机应用到计算存储设备的端到端链路，支持主机远程管理设备内存、传输数据、加载程序和提交计算任务，并完成Blowfish、Grep和设备内存拷贝验证。
++\datedsubsection{2022年北京冬奥会\ 对外联络-代表团陪同助理}{2022年01月 - 2022年03月}
++在冬奥期间为比利时和北马其顿代表队提供翻译、陪同及协调工作。\par
++为代表团和运动员提供语言翻译；妥当处理好代表团和各个领域的关系，使代表团与各个领域工作对接顺畅；根据代表团行程安排，规划交通，陪同代表团前往场馆勘探、训练、比赛，帮助代表团适应北京的冬奥生活。\par
++\vspace{0.20em}
+ 
++\section{技能/证书及其他}
++\begin{itemize}
++  \item \textbf{技能：}SPSS，Office，积木H5，秀米，可画
++  \item \textbf{证书/执照：}计算机二级，英语（CET-6）573分，通过研究生英语免修考试（通过率10\%）
+ \end{itemize}
++\vspace{-0.13em}
+ 
+-\datedsubsection{
+-\textbf{FPGA云服务器设备内存隔离}\ \
+-\textit{方向：多租户内存隔离}
+-}{2023.06 -- 2024.06}
+-
+-\begin{itemize}[parsep=0.2ex]
+-
+-  \item \textbf{需求：}解决FPGA云服务器中多个租户逻辑共享设备内存控制器时的访问竞争与相互干扰，为不同租户提供相互隔离的数据搬运通路。
+-
+-  \item \textbf{方法：}为每个租户设计独立的双向MCDMA通道，并基于SPDK用户态驱动使用大页内存和描述符链提交DMA请求；实现DMA Writer，将目标地址与租户流式数据关联并转换为AXI4-MM写事务。
+-
+-  \item \textbf{效果：}实现主机内存与租户设备内存之间的隔离搬运，完成多通道并行传输验证。
+-
++\section{个人总结}
++\vspace{0.70em}
++\begin{itemize}
++  \item 做事细心，责任心强，善于执行，具有良好的沟通能力并拥有团队合作精神
++  \item 随时可以入职，每周可实习5天，连续实习六个月以上
+ \end{itemize}
++\vspace{-1.5em}
+ 
+-%
+-
+-%\section{自我评价}
+-
+-%具备良好的团队协作与沟通意识，乐于支持同伴解决问题；保持主动学习和持续改进，
+-%能在复杂软硬件协同任务中积极推进问题闭环。
+-
+-%\newpage
+-%\bibliographystyle{IEEETran}
+-%\bibliography{mycite}
+ \end{document}
+diff --git a/resume.cls b/resume.cls
+index cd475b0..e56ac40 100644
+--- a/resume.cls
++++ b/resume.cls
+@@ -1,104 +1,125 @@
+ \NeedsTeXFormat{LaTeX2e}
+-\ProvidesClass{resume}[2015/05/25 An elegant Résumé class]
+-\LoadClass[11pt]{article}
++\ProvidesClass{resume}[2026/08/26 Compact single-page resume class]
++\LoadClass[10pt]{article}
+ 
+-% disable indent globally
+ \setlength{\parindent}{0pt}
+-% some general improvements, defines the XeTeX logo
++\setlength{\parskip}{0pt}
++
+ \RequirePackage{xltxtra}
+ \RequirePackage[absolute,overlay]{textpos}
+-% use xifthen
+ \RequirePackage{xifthen}
+-% use fontawesome
+-\RequirePackage{fontawesome}
+-% use xcolor for customizing color
+ \RequirePackage[usenames,dvipsnames]{xcolor}
+-% loading fonts
+ \RequirePackage{fontspec}
+-% Main document font
+-\setmainfont[
+-  Path = fonts/Main/ ,
+-  Extension = .otf ,
+-  UprightFont = *-regular ,
+-  BoldFont = *-bold ,
+-  ItalicFont = *-italic ,
+-  BoldItalicFont = *-bolditalic ,
+-  SmallCapsFont = Fontin-SmallCaps
+-]{texgyretermes}
++\RequirePackage{graphicx}
++\RequirePackage{tikz}
++\RequirePackage{titlesec}
++\RequirePackage{enumitem}
++\RequirePackage{tabularx}
++\RequirePackage{array}
++
++% Use a clean sans-serif face similar to the reference resume.
++\IfFontExistsTF{Microsoft YaHei}
++  {\setmainfont{Microsoft YaHei}}
++  {\IfFontExistsTF{Noto Sans}{\setmainfont{Noto Sans}}{\setmainfont{TeX Gyre Heros}}}
+ 
+ \RequirePackage[
+-	a4paper,
+-	left=0.7in,
+-	right=0.7in,
+-	top=0.50in,
+-	bottom=0.5in,
+-	nohead
++  a4paper,
++  left=0.50in,
++  right=0.50in,
++  top=0.17in,
++  bottom=0.30in,
++  nohead,
++  nofoot
+ ]{geometry}
+ 
+-\RequirePackage{titlesec}
+-\RequirePackage{enumitem}
+-\setlist{noitemsep} % removes spacing from items but leaves space around the whole list
+-%\setlist{nosep} % removes all vertical spacing within and around the list
+-\setlist[itemize]{topsep=0.25em, leftmargin=1.5pc}
+-\setlist[enumerate]{topsep=0.25em, leftmargin=1.5pc}
+-\RequirePackage[super]{nth}
+-
+-\titleformat{\section}         % Customise the \section command 
+-  {\Large\scshape\raggedright} % Make the \section headers large (\Large),
+-                               % small capitals (\scshape) and left aligned (\raggedright)
+-  {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
+-  {}                           % Can be used to insert code before the heading
+-  [\titlerule]                 % Inserts a horizontal line after the heading
+-\titlespacing*{\section}{0cm}{*1}{*1}
+-
+-\titleformat{\subsection}
+-  {\large\raggedright}
+-  {}{0em}
+-  {}
+-\titlespacing*{\subsection}{0cm}{*1}{*0.5}
+-
+-\newcommand{\datedsection}[2]{%
+-  \section[#1]{#1 \hfill #2}%
++\pagestyle{empty}
++\setlist{leftmargin=1.35em,labelsep=0.45em}
++\setlist[itemize]{label=\textbullet,topsep=1.20em,itemsep=0.15em,parsep=0pt,partopsep=0pt}
++
++% Section heading: bold title + thin horizontal rule, matching the reference.
++\titleformat{\section}
++  {\fontsize{12.3pt}{14.5pt}\selectfont\bfseries\raggedright}
++  {}{0em}{\raisebox{0.24em}}
++  [\vspace{-0.42em}\titlerule]
++\titlespacing*{\section}{0pt}{0.44em}{0.24em}
++
++% A compact one-line heading with a right-aligned date.
++\newcommand{\datedline}[2]{%
++  \noindent\begin{tabularx}{\linewidth}{@{}X>{\raggedleft\arraybackslash}p{4.85cm}@{}}
++    #1 & {\fontsize{9.15pt}{10.4pt}\selectfont\mbox{#2}}
++  \end{tabularx}\par%
+ }
++
+ \newcommand{\datedsubsection}[2]{%
+-  \subsection[#1]{#1 \hfill #2}%
++  \vspace{0.10em}%
++  \datedline{\bfseries #1}{#2}%
++  \vspace{0.00em}%
+ }
+-\newcommand{\datedline}[2]{%
+-  {\par #1 \hfill #2 \par}%
++
++\newcommand{\educationline}[4]{%
++  \datedline{\textbf{#1}\hspace{0.42em}#2}{#4}%
++  \vspace{0.20em}%
++  {#3\par}%
++  \vspace{0.53em}%
++}
++
++% Pale-blue school labels as used in the reference PDF.
++\definecolor{ResumeTagBlue}{RGB}{89,145,242}
++\definecolor{ResumeTagBg}{RGB}{231,239,255}
++\newcommand{\resumetag}[1]{%
++  \begingroup
++  \setlength{\fboxsep}{1.2pt}%
++  \colorbox{ResumeTagBg}{\textcolor{ResumeTagBlue}{\fontsize{8.6pt}{9.5pt}\selectfont #1}}%
++  \endgroup
++}
++
++% Detail paragraph with an italic lead-in label.
++\newcommand{\detail}[2]{%
++  \noindent\textit{#1：}#2\par
++  \vspace{0.18em}%
++}
++
++\newcommand{\name}[1]{%
++  {\fontsize{18.5pt}{21pt}\selectfont\bfseries #1\par}%
++  \vspace{0.34em}%
+ }
+ 
+-\newcommand{\name}[1]{
+-  \centerline{\Huge\scshape{#1}}
+-  \vspace{1.2ex}
++\newcommand{\contactInfo}[4]{%
++  {\fontsize{10.1pt}{12.0pt}\selectfont
++    #1\hspace{0.65em}|\hspace{0.65em}#2%
++    \ifthenelse{\isempty{#3}}{}{\hspace{0.65em}|\hspace{0.65em}#3}%
++    \ifthenelse{\isempty{#4}}{}{\hspace{0.65em}|\hspace{0.65em}#4}%
++    \par}%
+ }
+ 
+ \newlength{\resumePhotoWidth}
+-\setlength{\resumePhotoWidth}{2.90cm}
++\setlength{\resumePhotoWidth}{2.22cm}
+ \newlength{\resumePhotoX}
+ \setlength{\resumePhotoX}{\paperwidth}
+-\addtolength{\resumePhotoX}{-0.7in}
++\addtolength{\resumePhotoX}{-0.50in}
+ \addtolength{\resumePhotoX}{-\resumePhotoWidth}
+ \newcommand{\photo}[1]{%
+-  \begin{textblock*}{\resumePhotoWidth}(\resumePhotoX,0.20in)
+-    \includegraphics[width=\resumePhotoWidth,height=3.70cm,keepaspectratio]{#1}
++  \begin{textblock*}{\resumePhotoWidth}(\resumePhotoX,0.45in)
++    \includegraphics[width=\resumePhotoWidth,height=2.62cm]{#1}
+   \end{textblock*}%
+ }
+ 
+-\newcommand{\contactInfo}[4]{
+-  \begin{center}
+-    \sffamily\large
+-    {#1} \textperiodcentered\ {#2}
+-    \ifthenelse{\isempty{#3}}%
+-      { } % if {#3} is empty
+-      {\textperiodcentered\ {#3} } % homepage, no space before \text...
+-    \ifthenelse{\isempty{#4}}%
+-      { } % if {#3} is empty
+-      {\textperiodcentered\ {#4} }
+-  \end{center}
+-  \vspace{-0.5ex}
++% Subtle geometric header decoration behind the photo, inspired by the reference.
++\newcommand{\headerdecor}{%
++  \begin{tikzpicture}[remember picture,overlay]
++    \begin{scope}[shift={(current page.north east)},xshift=-2.2cm,yshift=-1.0cm,rotate=45]
++      \draw[black!11,line width=0.45pt] (-2.0,-1.2) rectangle (0.15,0.95);
++      \draw[black!11,line width=0.45pt] (-3.0,-0.1) rectangle (-0.9,2.0);
++      \draw[black!11,line width=0.45pt] (-0.9,-2.2) rectangle (1.2,-0.1);
++      \draw[black!11,line width=0.45pt] (-4.1,1.0) rectangle (-2.0,3.1);
++    \end{scope}
++    \begin{scope}[shift={(current page.north west)},xshift=0.15cm,yshift=-1.0cm,rotate=45]
++      \draw[black!10,line width=0.45pt] (-0.5,-1.2) rectangle (1.6,0.9);
++    \end{scope}
++  \end{tikzpicture}%
+ }
+ 
+-\newcommand{\role}[2]{
+-  {\par \textit{#1} ~ #2 \par}
+-  \vspace{0.5ex}
++\newcommand{\role}[2]{%
++  {\par \textit{#1} ~ #2 \par}%
++  \vspace{0.3ex}%
+ }
+diff --git a/sunwei_photo.jpg b/sunwei_photo.jpg
+new file mode 100644
+index 0000000000000000000000000000000000000000..726721d6b86ce804e2cafef9549882df76cca341
+GIT binary patch
+literal 11583
+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
+A5C8xG
+
+literal 0
+HcmV?d00001
+
+diff --git a/zh_CN-Windowsfonts.sty b/zh_CN-Windowsfonts.sty
+index 6a0bc0c..46f0a50 100644
+--- a/zh_CN-Windowsfonts.sty
++++ b/zh_CN-Windowsfonts.sty
+@@ -1,48 +1,32 @@
+ \NeedsTeXFormat{LaTeX2e}[1994/06/01]
+-\ProvidesPackage{zh_CN-Windowsfonts}[2026/07/06 Windows CJK fonts Package]
++\ProvidesPackage{zh_CN-Windowsfonts}[2026/08/26 Cross-platform CJK font setup]
+ 
+ \RequirePackage{fontspec}
+ \RequirePackage{xeCJK}
+ 
+-\defaultfontfeatures{Mapping=tex-text}
+-
+-\setCJKmainfont[
+-  Path = C:/Windows/Fonts/,
+-  UprightFont = simsun.ttc,
+-  BoldFont = simhei.ttf,
+-  ItalicFont = simkai.ttf,
+-  SmallCapsFont = simhei.ttf,
+-  AutoFakeBold = 2.5
+-]{simsun.ttc}
+-
+-\setCJKsansfont[
+-  Path = C:/Windows/Fonts/,
+-  UprightFont = simhei.ttf,
+-  BoldFont = simhei.ttf,
+-  AutoFakeBold = 2.5
+-]{simhei.ttf}
+-
+-\setCJKmonofont[
+-  Path = C:/Windows/Fonts/,
+-  AutoFakeBold = 2.5
+-]{simfang.ttf}
+-
+-\setCJKfamilyfont{zhsong}[
+-  Path = C:/Windows/Fonts/,
+-  AutoFakeBold = 2.5
+-]{simsun.ttc}
+-\setCJKfamilyfont{zhhei}[
+-  Path = C:/Windows/Fonts/,
+-  AutoFakeBold = 2.5
+-]{simhei.ttf}
+-\setCJKfamilyfont{zhkai}[
+-  Path = C:/Windows/Fonts/,
+-  AutoFakeBold = 2.5
+-]{simkai.ttf}
+-\setCJKfamilyfont{zhfs}[
+-  Path = C:/Windows/Fonts/,
+-  AutoFakeBold = 2.5
+-]{simfang.ttf}
++\defaultfontfeatures{Ligatures=TeX}
++\xeCJKsetup{CJKecglue=\hskip 0.05em}
++
++% Prefer Microsoft YaHei on Windows for the clean sans-serif look used by the
++% reference resume. Fall back to Noto Sans CJK SC so the source also compiles
++% on Linux/CI without changing the document.
++\IfFontExistsTF{Microsoft YaHei}{%
++  \setCJKmainfont[AutoFakeBold=2.0,AutoFakeSlant=0.15]{Microsoft YaHei}
++  \setCJKsansfont[AutoFakeBold=2.0,AutoFakeSlant=0.15]{Microsoft YaHei}
++  \setCJKmonofont{Microsoft YaHei}
++  \setCJKfamilyfont{zhsong}{Microsoft YaHei}
++  \setCJKfamilyfont{zhhei}{Microsoft YaHei}
++  \setCJKfamilyfont{zhkai}{Microsoft YaHei}
++  \setCJKfamilyfont{zhfs}{Microsoft YaHei}
++}{%
++  \setCJKmainfont[AutoFakeBold=2.0,AutoFakeSlant=0.15]{Noto Sans CJK SC}
++  \setCJKsansfont[AutoFakeBold=2.0,AutoFakeSlant=0.15]{Noto Sans CJK SC}
++  \setCJKmonofont{Noto Sans Mono CJK SC}
++  \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}
++  \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}
++  \setCJKfamilyfont{zhkai}{AR PL KaitiM GB}
++  \setCJKfamilyfont{zhfs}{Noto Serif CJK SC}
++}
+ 
+ \newcommand*{\songti}{\CJKfamily{zhsong}}
+ \newcommand*{\heiti}{\CJKfamily{zhhei}}

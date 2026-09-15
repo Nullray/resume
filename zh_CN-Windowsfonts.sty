@@ -1,5 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{zh_CN-Windowsfonts}[2026/08/26 Cross-platform CJK font setup]
+<<<<<<< HEAD
 
 \RequirePackage{fontspec}
 \RequirePackage{xeCJK}
@@ -10,6 +11,12 @@
 % Prefer Microsoft YaHei on Windows for the clean sans-serif look used by the
 % reference resume. Fall back to Noto Sans CJK SC so the source also compiles
 % on Linux/CI without changing the document.
+=======
+\RequirePackage{fontspec}
+\RequirePackage{xeCJK}
+\defaultfontfeatures{Ligatures=TeX}
+\xeCJKsetup{CJKecglue=\hskip 0.05em}
+>>>>>>> fcdf599 (Update Sun Wei one-page resume layout and content)
 \IfFontExistsTF{Microsoft YaHei}{%
   \setCJKmainfont[AutoFakeBold=2.0,AutoFakeSlant=0.15]{Microsoft YaHei}
   \setCJKsansfont[AutoFakeBold=2.0,AutoFakeSlant=0.15]{Microsoft YaHei}
@@ -27,10 +34,16 @@
   \setCJKfamilyfont{zhkai}{AR PL KaitiM GB}
   \setCJKfamilyfont{zhfs}{Noto Serif CJK SC}
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> fcdf599 (Update Sun Wei one-page resume layout and content)
 \newcommand*{\songti}{\CJKfamily{zhsong}}
 \newcommand*{\heiti}{\CJKfamily{zhhei}}
 \newcommand*{\kaishu}{\CJKfamily{zhkai}}
 \newcommand*{\fangsong}{\CJKfamily{zhfs}}
+<<<<<<< HEAD
 
+=======
+>>>>>>> fcdf599 (Update Sun Wei one-page resume layout and content)
 \endinput
