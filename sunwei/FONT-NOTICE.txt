@@ -1,0 +1,15 @@
+The self-contained resume HTML embeds a subset of Noto Sans CJK SC.
+
+Copyright notice retained from the original font:
+© 2014-2021 Adobe (http://www.adobe.com/).
+
+License notice retained from the original font:
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License
+for the specific language, permissions and limitations governing your use of
+this Font Software.
+
+License: https://openfontlicense.org/open-font-license-official-text/
+
+The embedded font is separate from the repository's source-code license.

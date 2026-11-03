@@ -1,3 +1,49 @@
+# 孙维简历 · sw 分支
+
+当前确认的简历位于 [sunwei/](sunwei/) 目录。
+
+| 文件 | 用途 |
+| --- | --- |
+| [双方向 HTML 审阅版](sunwei/resume.html) | 可切换行政科研综合版与活动营销综合版，可直接校对并保存 |
+| [行政科研综合版 PDF](sunwei/pdf/孙维_行政科研综合版.pdf) | A4 单页，侧重办公室、党政文秘和科研支持 |
+| [活动营销综合版 PDF](sunwei/pdf/孙维_活动营销综合版.pdf) | A4 单页，侧重赛事执行、活动实践和内容营销 |
+
+本轮已同步最新文案、圆点与悬挂缩进、职位居中、同宽自然换行。百度地图账号粉丝净增为 **2.5 万（10.3%）**。
+
+## 编辑与导出
+
+1. 在浏览器中打开 `sunwei/resume.html`，开启“文字校对”，完成后保存 HTML 并覆盖该文件。HTML 已嵌入字体与照片，阅读和编辑无需联网。
+2. 使用 Node.js 20 或更新版本，在项目根目录执行：
+
+```sh
+cd sunwei
+npm install
+npx playwright install chromium
+npm run check
+npm run build
+```
+
+脚本从当前 HTML 导出两份 PDF，检查 A4 版面、底部安全区、职位居中与自然换行。若使用已安装的 Chrome，可通过 `CHROME_EXECUTABLE` 指定浏览器可执行文件路径。
+
+需要额外核对 PDF 页数和文字完整性时：
+
+```sh
+python3 -m pip install -r requirements-check.txt
+python3 scripts/verify-pdfs.py pdf
+```
+
+导出至临时目录进行验证：
+
+```sh
+node scripts/export-pdf.cjs --output-dir .tmp/verification
+python3 scripts/verify-pdfs.py .tmp/verification
+```
+
+`resume.html` 是当前内容与版式的编辑入口。根目录 LaTeX 文件及下方模板说明保留为历史资料。
+
+<details>
+<summary>查看旧版 LaTeX 模板说明</summary>
+
 # 个人简历
 
 本项目为个人简历 Latex 源码存放，同时包含效果图呈现，简历入口为 resume-zh_CN.tex， 修改自项目 [resume](https://github.com/billryan/resume/)，若不想本地手动编译可以将该源码打包至 zip 直接上传至 ShareLatex 进行在线编译与预览。
@@ -62,3 +108,5 @@ git clone https://github.com/hijiangtao/resume.git --branch master --depth 1 --s
 [The MIT License (MIT)](http://opensource.org/licenses/MIT)
 
 Copyrighted fonts are not subjected to this License.
+
+</details>

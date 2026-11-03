@@ -1,0 +1,12 @@
+{
+  "name": "sunwei-resumes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sun Wei's current one-page administrative/research and activities/marketing resumes",
+  "scripts": {
+    "build": "node scripts/export-pdf.cjs",
+    "check": "node scripts/export-pdf.cjs --check-only"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": { "playwright": "1.62.1" }
+}

@@ -40,3 +40,8 @@ jspm_packages
 *.aux
 *.pdf
 tmp/
+
+# Current Sun Wei resume exports and local verification
+!sunwei/pdf/*.pdf
+sunwei/.tmp/
+sunwei/pdf/layout-report.json
